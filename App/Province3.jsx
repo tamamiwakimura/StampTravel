@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import { List } from 'react-native-paper';
 
 
-const Province_2 = ({ route }) => {
+const Mytravel_3 = ({ route }) => {
   const { item } = route.params; // รับข้อมูลที่ส่งมาจาก AccountScreen
   
   return (
@@ -30,5 +30,5 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Province_2;
+export default Mytravel_3;
 

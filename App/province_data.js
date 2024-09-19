@@ -2,12 +2,13 @@ import {Image  } from 'react-native';
 const DATA = [
     {
       key: '1',
-      label: 'Sonkhlaaaa',
-      description: 'This is the first item',
+      label: 'Sonkhla',
+      description: '144 สถานที่ท่องเที่ยว',
       price: '10.00',
-      imageUrl: 'https://picsum.photos/700',
+      imageUrl: 'https://news.gimyong.com/static/uploads/pictures/201812/1688853877-51043.webp',
       ProgressPercent: '0.2',
-      Percent: '20%'
+      Percent: '20%',
+      Page: 'Mytravel_2'
     },
     {
       key: '2',
@@ -16,7 +17,9 @@ const DATA = [
       price: '15.50',
       imageUrl: 'https://picsum.photos/700',
       ProgressPercent: '0.7',
-      Percent: '70%'
+      Percent: '70%',
+      Page: 'Mytravel_3'
+
     },
     {
       key: '3',
