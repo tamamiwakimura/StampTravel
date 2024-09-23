@@ -2,6 +2,8 @@ import { View, Text, StyleSheet, FlatList, SafeAreaView,Image ,TouchableOpacity 
 import DATA from './province_data';
 import * as Progress from 'react-native-progress';
 import { shadow } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 const Mytravel_1 = ({ navigation }) => {
@@ -137,4 +139,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default Mytravel_1
+export default Mytravel_1;

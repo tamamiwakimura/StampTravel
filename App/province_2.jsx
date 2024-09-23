@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { List } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
 const Province_2 = ({ route }) => {

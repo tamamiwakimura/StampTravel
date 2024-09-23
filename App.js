@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import Province_2 from './App/province_2';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import Mytravel_1 from './App/Province_1';
+import Mytravel_1 from './App/province_1';
 import Mytravel_3 from './App/Province3';
 const Stack = createStackNavigator();
 export default function App() {
