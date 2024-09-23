@@ -3,12 +3,14 @@ const DATA = [
     {
       key: '1',
       label: 'Sonkhla',
-      description: '144 สถานที่ท่องเที่ยว',
-      price: '10.00',
+      description: '16 อำเภอ', //เปลี่ยนเป็นอำเภอ
       imageUrl: 'https://news.gimyong.com/static/uploads/pictures/201812/1688853877-51043.webp',
       ProgressPercent: '0.2',
       Percent: '20%',
-      Page: 'Mytravel_2'
+      subprovince: [
+        { id: '1', name: 'Hatyai', description: '30 สถานที่ท่องเที่ยว',imageUrl: 'https://news.gimyong.com/static/uploads/pictures/201812/1688853877-51043.webp' ,score:'3/4'},
+        { id: '2', name: 'Sadao' },
+      ],
     },
     {
       key: '2',
@@ -18,7 +20,10 @@ const DATA = [
       imageUrl: 'https://blog-static.kkday.com/th/blog/wp-content/uploads/Tarutao-National-Marine-Park.jpg',
       ProgressPercent: '0.3',
       Percent: '30%',
-      Page: 'Mytravel_3'
+      subprovince: [
+        { id: '1', name: 'xxx', description: '30 สถานที่ท่องเที่ยว' },
+        { id: '2', name: 'yyyy' },
+      ],
 
     },
     {

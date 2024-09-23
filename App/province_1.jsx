@@ -28,7 +28,7 @@ const Mytravel_1 = ({ navigation }) => {
                     data={DATA}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                        onPress={() => navigation.navigate(item.Page, { item })} > 
+                        onPress={() => navigation.navigate('Mytravel_2', item)} > 
                       
                         <View style={styles.item}>
                             <View style={styles.ViweImage}>
@@ -115,13 +115,14 @@ const styles = StyleSheet.create({
     },
     Text: {
         paddingHorizontal: 16, //กำหนดความกว้างแนวนอน ของข้อความกับรูปภาพ
+        justifyContent:'center'
     },
     Textprovince: { //text จังหวัด
         fontSize: 16,
         fontWeight:'bold'
     },
     Textdetail: {
-        fontSize: 10
+        fontSize: 10.5
     },
     ViewProgress: {
         alignItems: 'center',

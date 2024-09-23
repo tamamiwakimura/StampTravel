@@ -1,34 +1,158 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, SafeAreaView,Image ,TouchableOpacity } from 'react-native';
 import { List } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import DATA from './province_data';
+import * as Progress from 'react-native-progress';
 
 
 const Province_2 = ({ route }) => {
-  const { item } = route.params; // รับข้อมูลที่ส่งมาจาก AccountScreen
-  
+  const data = route.params; // รับข้อมูลที่ส่งมาจาก AccountScreen
+  console.log("data", data)
   return (
-    <View style={styles.container}>
-    
-    </View>
+    <View>
+        
+        <SafeAreaView>
+            
+            <View style={styles.container}>
+                <View >
+                    <Image
+                            source={{
+                                uri: "https://www.charnveeresortkhaoyai.com/wp-content/uploads/2023/12/Rancho-Dec-1-%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%E0%B8%97%E0%B8%B5%E0%B9%88-%E0%B8%AA%E0%B8%A7%E0%B8%A2%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B9%83%E0%B8%99%E0%B9%84%E0%B8%97%E0%B8%A2-06-scaled.jpg",
+                            }}
+                            style={styles.HeaderPic}
+                        />
+                </View>
+                <View style={styles.ViewMytravellist}>
+                    <Text style={styles.TextMytravellist}>{data.label}</Text>
+                </View>
+                <FlatList style={styles.Flatlist}
+                    data={data.subprovince}
+                    renderItem={({ item }) => (
+                        <TouchableOpacity
+                        onPress={() => navigation.navigate(item.key, { item })} > 
+                      
+                        <View style={styles.item}>
+                            <View style={styles.ViweImage}>
+                                <Image source={{ uri: item.imageUrl }} style={styles.image} />
+                            </View>
+
+                            <View style={styles.Text}>
+                              <View  style={styles.TextViewscore}>
+                                <View>
+                                  <Text style={styles.Textprovince} >{item.name}</Text>
+                                  <Text style={styles.Textdetail}>{item.description}</Text>
+                                </View>
+                              <Text style={styles.Textscore}>{item.score}</Text>
+
+                              </View>
+                             
+                              
+                            </View>
+                            
+                            
+                            
+                        </View>
+                    </TouchableOpacity>
+                    )}
+                    keyExtractor={item => item.key}
+                    showsHorizontalScrollIndicator={false} // ซ่อนสัญลักษณ์การเลื่อนแนวนอน
+                />
+            </View>
+        </SafeAreaView>
+        </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
+  HeaderPic:{
+    height:120,
+    width:320,
+    
+
+},
+
+ViewMytravellist: {
+    padding: 16, //ให้มีขอบ
     alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  description: {
+},
+TextMytravellist:{
+    fontWeight:'bold'
+},
+
+Flatlist: {
+    height:500,
+},
+container: {
+    padding: 20, //ความกว้างขอบบน
+    marginLeft:5
+},
+item: {
+    marginVertical: 8, //ช่องว่างบนล่าง
+    padding: 10, //ช่องว่างซ้ายขวา
+    backgroundColor: '#FFFFFF', //ให้flatlist เป็นสีขาว
+
+    //-----------------------------อันนี้้สำหรับ IOS
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,  
+   
+    //----------------------------อันนี้สำหรับ Androind
+    elevation: 5, // เงากรอบจ้า
+   
+    borderRadius: 12, //ความโค้งของกรอบนะจ้ะ
+    
+    width: 300,
+    height: 100,
+    flexDirection: 'row' //ให้มันเรียงในแนวนอนนะจ้ะ
+},
+image: {
+    width: 120, // กำหนดความกว้างของรูปภาพ
+    height: 80, // กำหนดความสูงของรูปภาพ
+    //marginBottom: 8, // ระยะห่างระหว่างรูปกับข้อความ
+    borderRadius: 8, // ทำให้ขอบของรูปภาพโค้งมน
+    objectFit:'fill', //กำหนดขนาดรูปภาพ
+    
+
+},
+ViweImage: {
+    justifyContent: 'center', //ให้รูปอยู่ตรงกลาง
+},
+Text: {
+    paddingHorizontal: 20, //กำหนดความกว้างแนวนอน ของข้อความกับรูปภาพ
+    justifyContent:'center'
+},
+Textprovince: { //text จังหวัด
     fontSize: 16,
-    marginTop: 10,
+    fontWeight:'bold'
+},
+Textdetail: {
+    fontSize: 10
+},
+TextViewscore: {
+  flexDirection: 'row',
+  
+},
+Textscore: {
+  paddingHorizontal: 19,
+  justifyContent: 'center',
+  fontSize: 19,
+  fontWeight:'bold'
+
+},
+ViewProgress: {
+    alignItems: 'center',
+    flexDirection: 'row',
+   
+    //margin:10
+},
+
+ProgressBar:{
+    margin: 3,
+    marginVertical:21,
+    
   },
 });
 
