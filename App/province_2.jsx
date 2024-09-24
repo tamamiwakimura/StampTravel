@@ -34,15 +34,11 @@ const Province_2 = ({ route }) => {
                         onPress={() => navigation.navigate(item.key, { item })} > 
                       
                         <View style={styles.item}>
-                            <View style={styles.ViweImage}>
-                                <Image source={{ uri: item.imageUrl }} style={styles.image} />
-                            </View>
 
                             <View style={styles.Text}>
                               <View  style={styles.TextViewscore}>
                                 <View>
                                   <Text style={styles.Textprovince} >{item.name}</Text>
-                                  <Text style={styles.Textdetail}>{item.description}</Text>
                                 </View>
                               <Text style={styles.Textscore}>{item.score}</Text>
 
@@ -104,8 +100,8 @@ item: {
    
     borderRadius: 12, //ความโค้งของกรอบนะจ้ะ
     
-    width: 300,
-    height: 100,
+    width: 300, //ความกว้าง flatlist
+    height: 60,
     flexDirection: 'row' //ให้มันเรียงในแนวนอนนะจ้ะ
 },
 image: {
@@ -124,19 +120,17 @@ Text: {
     paddingHorizontal: 20, //กำหนดความกว้างแนวนอน ของข้อความกับรูปภาพ
     justifyContent:'center'
 },
-Textprovince: { //text จังหวัด
+Textprovince: { //text อำเภอ
     fontSize: 16,
     fontWeight:'bold'
 },
-Textdetail: {
-    fontSize: 10
-},
+
 TextViewscore: {
   flexDirection: 'row',
   
 },
 Textscore: {
-  paddingHorizontal: 19,
+  paddingHorizontal: 160,
   justifyContent: 'center',
   fontSize: 19,
   fontWeight:'bold'

@@ -3,13 +3,19 @@ const DATA = [
     {
       key: '1',
       label: 'Sonkhla',
-      description: '16 อำเภอ', //เปลี่ยนเป็นอำเภอ
+      description: '30 สถานที่ท่องเที่ยว', //เพิ่มอำเภอ
       imageUrl: 'https://news.gimyong.com/static/uploads/pictures/201812/1688853877-51043.webp',
       ProgressPercent: '0.2',
       Percent: '20%',
       subprovince: [
-        { id: '1', name: 'Hatyai', description: '30 สถานที่ท่องเที่ยว',imageUrl: 'https://news.gimyong.com/static/uploads/pictures/201812/1688853877-51043.webp' ,score:'3/4'},
+        { id: '1', name: 'Hatyai', score:'3/4'},
         { id: '2', name: 'Sadao' },
+        { id: '3', name: 'Sadao' },
+        { id: '4', name: 'Sadao' },
+        { id: '5', name: 'Sadao' },
+        { id: '6', name: 'Sadao' },
+        { id: '7', name: 'Sadao' },
+        { id: '8', name: 'Sadao' },
       ],
     },
     {
