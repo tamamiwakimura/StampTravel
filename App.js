@@ -4,6 +4,7 @@ import Province_2 from './App/province_2';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Mytravel_1 from './App/province_1';
+import Province_3 from './App/province_3';
 const Stack = createStackNavigator();
 export default function App() {
   return (
@@ -12,6 +13,8 @@ export default function App() {
             <Stack.Navigator initialRouteName="Mytravel_1">
               <Stack.Screen name="Province" component={Mytravel_1} />
               <Stack.Screen name="Mytravel_2" component={Province_2} />
+              <Stack.Screen name="Mytravel_3" component={Province_3} />
+
             </Stack.Navigator>
           </NavigationContainer>
       

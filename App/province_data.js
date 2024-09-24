@@ -8,7 +8,18 @@ const DATA = [
       ProgressPercent: '0.2',
       Percent: '20%',
       subprovince: [
-        { id: '1', name: 'Hatyai', score:'3/4'},
+        { id: '1',
+          name: 'Hatyai', 
+          score:'3/4',
+          subsubprovince: [
+            {
+              idsub: '1',
+              namesub: 'เขาน้ำค้าง',
+              imageUrl: 'https://news.gimyong.com/static/uploads/pictures/201812/1688853877-51043.webp',
+
+            }
+          ]
+        },
         { id: '2', name: 'Sadao' },
         { id: '3', name: 'Sadao' },
         { id: '4', name: 'Sadao' },
@@ -18,6 +29,7 @@ const DATA = [
         { id: '8', name: 'Sadao' },
       ],
     },
+
     {
       key: '2',
       label: 'Satun',

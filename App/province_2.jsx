@@ -5,11 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import DATA from './province_data';
 import * as Progress from 'react-native-progress';
+import { useNavigation } from '@react-navigation/native'; // เพิ่ม useNavigation
 
 
 const Province_2 = ({ route }) => {
   const data = route.params; // รับข้อมูลที่ส่งมาจาก AccountScreen
-  console.log("data", data)
+  const navigation = useNavigation(); //ต้องใส่เพื่อไปหน้า3
   return (
     <View>
         
@@ -31,7 +32,7 @@ const Province_2 = ({ route }) => {
                     data={data.subprovince}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                        onPress={() => navigation.navigate(item.key, { item })} > 
+                        onPress={() => navigation.navigate('Mytravel_3',item)} > 
                       
                         <View style={styles.item}>
 
