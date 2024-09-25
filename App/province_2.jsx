@@ -1,16 +1,18 @@
 import * as React from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView,Image ,TouchableOpacity } from 'react-native';
-import { List } from 'react-native-paper';
+import { List} from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import DATA from './province_data';
 import * as Progress from 'react-native-progress';
 import { useNavigation } from '@react-navigation/native'; // เพิ่ม useNavigation
+import { useFocusEffect } from '@react-navigation/native'; 
 
 
-const Province_2 = ({ route }) => {
-  const data = route.params; // รับข้อมูลที่ส่งมาจาก AccountScreen
-  const navigation = useNavigation(); //ต้องใส่เพื่อไปหน้า3
+const Province_2 = ({ route ,navigation}) => {
+  const data = route.params ; // รับข้อมูลที่ส่งมาจาก AccountScreen
+    
+  
   return (
     <View>
         
@@ -32,7 +34,7 @@ const Province_2 = ({ route }) => {
                     data={data.subprovince}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                        onPress={() => navigation.navigate('Mytravel_3',item)} > 
+                        onPress={() => navigation.navigate('Mytravel_3', { ...item, checkedCount: 0 })} > 
                       
                         <View style={styles.item}>
 
@@ -41,8 +43,9 @@ const Province_2 = ({ route }) => {
                                 <View>
                                   <Text style={styles.Textprovince} >{item.name}</Text>
                                 </View>
-                              <Text style={styles.Textscore}>{item.score}</Text>
-
+                                <Text style={styles.Textscore}>
+                                   {item.checkedCount || 0} /{item.subsubprovince.length}
+                                </Text>
                               </View>
                              
                               
@@ -79,7 +82,7 @@ TextMytravellist:{
 },
 
 Flatlist: {
-    height:500,
+    height:450,
 },
 container: {
     padding: 20, //ความกว้างขอบบน
@@ -128,10 +131,12 @@ Textprovince: { //text อำเภอ
 
 TextViewscore: {
   flexDirection: 'row',
-  
+  justifyContent: 'space-between',  
+  alignItems: 'center',  // ให้ข้อความอยู่กึ่งกลางในแนวตั้ง
+  width: 250,  // ความกว้างตรงกลาง
 },
 Textscore: {
-  paddingHorizontal: 160,
+  
   justifyContent: 'center',
   fontSize: 19,
   fontWeight:'bold'

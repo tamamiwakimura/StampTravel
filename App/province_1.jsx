@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     },
 
     Flatlist: {
-        height:500,
+        height:450,
     },
     container: {
         padding: 20, //ความกว้างขอบบน

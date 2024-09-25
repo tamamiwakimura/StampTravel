@@ -1,12 +1,36 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; // Import this hook to get navigation
 import DATA from './province_data';
+import { Checkbox} from 'react-native-paper';
+
 
 const Province_3 = ({ route }) => {
   const data = route.params; // รับข้อมูลที่ส่งมาจาก Province_2
-  const navigation = useNavigation(); // Initialize navigation
+  const [checkedItems, setCheckedItems] = useState([]);
+  const [checkedCount, setCheckedCount] = useState(0); // เก็บจำนวน checkbox ที่ถูกเลือก
+  const navigation = useNavigation();
 
+ 
+  //-----------เปลี่ยนสถานะ checkbox นะคับ
+  const handleCheckboxPress = (subId) => {
+    setCheckedItems((prevCheckedItems) => {
+      const updatedCheckedItems = { 
+        ...prevCheckedItems, 
+        [subId]: !prevCheckedItems[subId] // เปลี่ยนสถานะ checkbox ของรายการที่มี subId ตรงกัน
+      };
+
+      // นับจำนวน checkbox ที่ถูกกด
+      const countChecked = Object.values(updatedCheckedItems).filter(Boolean).length;
+
+      // อัปเดตจำนวน checkbox ที่ถูกเลือก
+      setCheckedCount(countChecked);
+
+      // Return the updated state
+      return updatedCheckedItems;
+    });
+  };
   return (
     <View>
       <SafeAreaView>
@@ -26,11 +50,7 @@ const Province_3 = ({ route }) => {
             style={styles.Flatlist}
             data={data.subsubprovince}
             renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => {
-                  navigation.navigate('Mytravel_3', item ); 
-                }}
-              >
+             
                 <View style={styles.item}>
                 <View style={styles.ViweImage}>
                                 <Image source={{ uri: item.imageUrl }} style={styles.image} />
@@ -38,12 +58,16 @@ const Province_3 = ({ route }) => {
                   <View style={styles.Text}>
                     <View style={styles.TextViewscore}>
                       <View>
-                        <Text style={styles.Textprovince}>{item.namesub}</Text>
+                        <Text style={styles.Textprovince}>{checkedCount}</Text>
                       </View>
+                      <Checkbox
+                        status={checkedItems[item.idsub] ? 'checked' : 'unchecked'}
+                        onPress={() => handleCheckboxPress(item.idsub)} // เรียกใช้ฟังก์ชันเมื่อ checkbox ถูกกด
+                      />
                     </View>
                   </View>
                 </View>
-              </TouchableOpacity>
+            
             )}
             keyExtractor={(item) => item.idsub}
             showsHorizontalScrollIndicator={false} // ซ่อนสัญลักษณ์การเลื่อนแนวนอน
@@ -71,7 +95,7 @@ const styles = StyleSheet.create({
     },
 
     Flatlist: {
-        height:500,
+        height:450,
     },
     container: {
         padding: 20, //ความกว้างขอบบน
