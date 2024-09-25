@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, FlatList, SafeAreaView, Image, TouchableOpacity
 import { useNavigation } from '@react-navigation/native'; // Import this hook to get navigation
 import DATA from './province_data';
 import { Checkbox} from 'react-native-paper';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const Province_3 = ({ route }) => {
@@ -11,23 +12,45 @@ const Province_3 = ({ route }) => {
   const [checkedItems, setCheckedItems] = useState([]);
   const [checkedCount, setCheckedCount] = useState(0); // เก็บจำนวน checkbox ที่ถูกเลือก
   const navigation = useNavigation();
+  useEffect(() => {
+    const loadCheckedItems = async () => {
+      try {
+        const storedCheckedItems = await AsyncStorage.getItem('checkedItems');
+        if (storedCheckedItems) {
+          const parsedCheckedItems = JSON.parse(storedCheckedItems);
+          setCheckedItems(parsedCheckedItems);
 
+          // นับจำนวน checkbox ที่ถูกเลือก
+          const countChecked = Object.values(parsedCheckedItems).filter(Boolean).length;
+          setCheckedCount(countChecked);
+        }
+      } catch (error) {
+        console.error('Failed to load checked items:', error);
+      }
+    };
+
+    loadCheckedItems();
+  }, []);
  
   //-----------เปลี่ยนสถานะ checkbox นะคับ
-  const handleCheckboxPress = (subId) => {
+  const handleCheckboxPress = async (subId) => {
     setCheckedItems((prevCheckedItems) => {
-      const updatedCheckedItems = { 
-        ...prevCheckedItems, 
-        [subId]: !prevCheckedItems[subId] // เปลี่ยนสถานะ checkbox ของรายการที่มี subId ตรงกัน
+      const updatedCheckedItems = {
+        ...prevCheckedItems,
+        [subId]: !prevCheckedItems[subId], // เปลี่ยนสถานะ checkbox ของรายการที่มี subId ตรงกัน
       };
 
-      // นับจำนวน checkbox ที่ถูกกด
+      // นับจำนวน checkbox ที่ผู้ใช้เลือกนะจ้ะ
       const countChecked = Object.values(updatedCheckedItems).filter(Boolean).length;
-
-      // อัปเดตจำนวน checkbox ที่ถูกเลือก
       setCheckedCount(countChecked);
 
-      // Return the updated state
+      // บันทึกค่าใน AsyncStorage
+      try {
+        AsyncStorage.setItem('checkedItems', JSON.stringify(updatedCheckedItems));
+      } catch (error) {
+        console.error('Failed to save checked items:', error);
+      }
+
       return updatedCheckedItems;
     });
   };
