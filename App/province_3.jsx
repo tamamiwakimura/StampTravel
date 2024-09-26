@@ -13,21 +13,28 @@ const Province_3 = ({ route }) => {
   const [checkedCount, setCheckedCount] = useState(0); // เก็บจำนวน checkbox ที่ถูกเลือก
   const navigation = useNavigation();
   useEffect(() => {
-    const loadCheckedItems = async () => {
+    const loadCheckedItems = async (subId) => {
       try {
-        const storedCheckedItems = await AsyncStorage.getItem('checkedItems');
+        const storedCheckedItems = await AsyncStorage.getItem(`checkedItems_${subId}`);
         if (storedCheckedItems) {
           const parsedCheckedItems = JSON.parse(storedCheckedItems);
-          setCheckedItems(parsedCheckedItems);
-
+          setCheckedItems((prev) => ({
+            ...prev,
+            [subId]: parsedCheckedItems,
+          }));
+    
           // นับจำนวน checkbox ที่ถูกเลือก
           const countChecked = Object.values(parsedCheckedItems).filter(Boolean).length;
-          setCheckedCount(countChecked);
+          setCheckedCount((prev) => ({
+            ...prev,
+            [subId]: countChecked,
+          }));
         }
       } catch (error) {
         console.error('Failed to load checked items:', error);
       }
     };
+    
 
     loadCheckedItems();
   }, []);
