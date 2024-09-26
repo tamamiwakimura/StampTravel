@@ -678,65 +678,235 @@ const DATA = [
 
 
       },
-    {
+      {
         key: '6',
         label: 'Trang',
-        description: '135 สถานที่ท่องเที่ยว ',
+        description: '15 สถานที่ท่องเที่ยว',
         price: '12.75',
-        imageUrl: 'https://mpics.mgronline.com/pics/Images/560000003291901.JPEG',
-        ProgressPercent: '0.5',
-      Percent: '50%',
-      subprovince: [
-        { id: '1', name: 'Mueang ',
-          score:'3/3', },
-        { id: '2', name: 'Kantang' ,
-          score:'3/3',},
-        { id: '3', name: 'Yan Ta Khao' ,
-            score:'3/3',},
-        { id: '3', name: 'Palian' ,
-            score:'3/3',},
-        { id: '3', name: 'Sikao' ,
-              score:'2/3',},
-        { id: '3', name: 'Huai Yot' ,
-              score:'0/3',},
-        { id: '3', name: 'Wang Wiset' ,
-               score:'0/3',},
-        { id: '3', name: 'Na Yong' ,
-               score:'0/4',},
-         { id: '3', name: ' Ratsada' ,
-                score:'0/3',},
-         { id: '3', name: 'Hat Samran' ,
-                score:'0/4',},
-      ],
+        imageUrl: 'https://www.eatchillwander.com/wp-content/uploads/2021/04/trang-travel-guide.jpg',
+        ProgressPercent: '0.6',
+        Percent: '60%',
+        subprovince: [
+          { id: '1', name: 'Mueang ',
+            score:'3/3',  subsubprovince: [
+              {
+                idsub: '1',
+                namesub: ' ถนนคนเดินตรัง',
+                imageUrl: 'https://files.thailandtourismdirectory.go.th/assets/upload/2020/09/23/20200923a88d04756b7371f5a8a37d59bf0c97f8121546.jpg',
+  
+              },
+              {
+                idsub: '2',
+                namesub: 'หาดหัวหิน',
+                imageUrl: 'https://sp-ao.shortpixel.ai/client/to_auto,q_lossy,ret_img,w_931,h_693/https://beachlover.net/wp-content/uploads/2022/01/6-2.jpg',
+              },
+              {
+                idsub: '3',
+                namesub: 'สวนพฤกษศาสตร์',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2020/10/15/c5a2f140-0ee2-11eb-b697-a3863fa641e3_original.jpg',
+              },
+             
+      
+            ] 
+          },
+          { id: '2', name: 'Yan Ta Khao ' ,
+            score:'1/3', 
+            subsubprovince: [
+              {
+                idsub: '1',
+                namesub: 'น้ำตกสายรุ้ง',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2022/06/30/c6de4c90-f88c-11ec-9dbb-71ace61f23e9_webp_original.jpg',
+  
+              },
+              {
+                idsub: '2',
+                namesub: 'น้ำตกไพรสวรรค์ ',
+                imageUrl: 'https://s.isanook.com/tr/0/ui/283/1418099/291162_191129_0032_1575016466.jpg',
+              },
+              {
+                idsub: '3',
+                namesub: 'น้ำตกลำปลอก ',
+                imageUrl: 'https://img.wongnai.com/p/1920x0/2019/04/26/30457700fc89492596177b1ec4ac52e8.jpg',
+              },
+            ]
+          },
+          { id: '3', name: 'Kantang' ,
+              score:'0/3', subsubprovince: [
+                {
+                  idsub: '1',
+                  namesub: 'หาดสิวาลัย',
+                  imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0a/4f/3f/37/photo1jpg.jpg?w=1200&h=-1&s=1',
+    
+                },
+                {
+                  idsub: '2',
+                  namesub: ' บ่อน้ำร้อนกันตัง',
+                  imageUrl: 'https://cms.dmpcdn.com/travel/2022/02/09/c7d68530-8970-11ec-9c1e-79ff00939610_webp_original.jpg',
+                },
+                {
+                  idsub: '3',
+                  namesub: 'สถานีรถไฟกันตัง',
+                  imageUrl: 'https://cms.dmpcdn.com/travel/2021/03/04/32083cd0-7ca9-11eb-a6ae-e39c3763a395_original.jpg',
+                },
+                
+        
+              ]
+            },
+            { id: '4', name: 'Huai Yot' ,
+              score:'0/3',subsubprovince: [
+               {
+                 idsub: '1',
+                 namesub: 'เหมืองมรกต',
+                 imageUrl: 'https://trangcity.co/uploads/galleries/gallery_5a30fce46d63b.jpg',
+   
+               },
+               {
+                 idsub: '2',
+                 namesub: 'วัดภูเขาทอง  ',
+                 imageUrl: 'https://media.oknation.net/uploads/201202/20/41426f42f.jpg',
+               },
+               {
+                 idsub: '3',
+                 namesub: ' น้ำตกโตนคลาน ',
+                 imageUrl: 'https://lh3.googleusercontent.com/p/AF1QipN4ou4ZZlbzkhP3InUc4xPNMFDyC8bWJMbAilBV=w600-k',
+               },
+               
+       
+             ]},
+             { id: '5', name: 'Ratsada' ,
+              score:'0/3',subsubprovince: [
+               {
+                 idsub: '1',
+                 namesub: 'จุดชมลิงเกาะสิเหร่',
+                 imageUrl: 'https://img.wongnai.com/p/1920x0/2021/05/24/28802aa181de47a19ec586775137d155.jpg',
+   
+               },
+               {
+                 idsub: '2',
+                 namesub: ' น้ำตกหนานในโสม  ',
+                 imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuhhLSzeLHA8kuXCvtcRUuaz3fydxHaPtaXA&s',
+               },
+               {
+                 idsub: '3',
+                 namesub: ' ถ้ำนาคราช ',
+                 imageUrl: 'https://t1.blockdit.com/photos/2019/05/5ce3fabc1058243d70e8647a_800x0xcover_4WgrH4Nm.jpg',
+               },
+               
+       
+             ]},
+        ],
       },
       {
         key: '7',
         label: 'Krabi',
-        description: '156 สถานที่ท่องเที่ยว',
+        description: '15 สถานที่ท่องเที่ยว',
         price: '12.75',
         imageUrl: 'https://jeeor.com/wp-content/uploads/2020/03/%E0%B9%80%E0%B8%81%E0%B8%B2%E0%B8%B0%E0%B8%9E%E0%B8%B5%E0%B8%9E%E0%B8%B5.jpg',
         ProgressPercent: '0.6',
-      Percent: '60%',
-      subprovince: [
-        { id: '1', name: 'Mueang ',
-          score:'3/3', description: '30 สถานที่ท่องเที่ยว' },
-        { id: '2', name: 'Khao Phanom' ,
-          score:'0/3',},
-        { id: '3', name: 'Ko Lanta' ,
-            score:'3/3',},
-        { id: '3', name: 'Kapong' ,
-            score:'3/3',},
-        { id: '3', name: 'Khlong Thom' ,
-              score:'3/3',},
-        { id: '3', name: ' Ao Luek' ,
-              score:'0/3',},
-        { id: '3', name: 'Plai Phraya' ,
-               score:'0/3',},
-        { id: '3', name: 'Lam Thap' ,
-               score:'3/4',},
-        { id: '3', name: 'Nuea Khlong' ,
-                score:'0/4',},
-      ],
+        Percent: '40%',
+        subprovince: [
+          { id: '1', name: 'Mueang ',
+            score:'3/3',  subsubprovince: [
+              {
+                idsub: '1',
+                namesub: ' อ่าวนาง',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2020/08/19/80608760-e1c8-11ea-a0b4-232d08119930_original.jpg',
+  
+              },
+              {
+                idsub: '2',
+                namesub: 'ทะเลแหวก',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/042ffb80-9dce-11ec-aa5a-b561cdef9acb_webp_original.jpg',
+              },
+              {
+                idsub: '3',
+                namesub: 'เกาะพีพี',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2020/09/09/7af158a0-f289-11ea-b369-edee981b0720_original.JPG',
+              },
+              {
+                idsub: '4',
+                namesub: 'หมู่เกาะปอดะ',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/3db21420-9dcd-11ec-b7b5-f55dc08c53fa_webp_original.jpg',
+              },
+              {
+                idsub: '5',
+                namesub: 'เกาะห้อง',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/53671b60-9dcf-11ec-9b64-95a9f8100bbc_webp_original.jpg',
+              },
+              {
+                idsub: '6',
+                namesub: 'หาดไร่เลย์',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/2d7804a0-9de3-11ec-9b64-95a9f8100bbc_webp_original.jpg',
+              },
+      
+            ] 
+          },
+          { id: '2', name: 'Ko Lanta ' ,
+            score:'1/3', 
+            subsubprovince: [
+              {
+                idsub: '1',
+                namesub: 'หมู่เกาะลันตา',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/277d6350-9dd0-11ec-a263-69af8fec36e4_webp_original.jpg',
+  
+              },
+              {
+                idsub: '2',
+                namesub: 'สะพานสิริลันตา ',
+                imageUrl: 'https://cms.dmpcdn.com/travel/2023/07/19/d4f9b060-25f6-11ee-8cb3-29f6634035e1_webp_original.webp',
+              },
+              {
+                idsub: '3',
+                namesub: 'หาดคอกวาง ',
+                imageUrl: 'https://pix10.agoda.net/hotelImages/230/230311/230311_16121415050049669191.jpg?ca=6&ce=1&s=414x232',
+              },
+            ]
+          },
+          { id: '3', name: ' Ao Luek' ,
+              score:'0/3', subsubprovince: [
+                {
+                  idsub: '1',
+                  namesub: 'เขากาโรส',
+                  imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/9cf6cdc0-9de3-11ec-b7b5-f55dc08c53fa_webp_original.jpg',
+    
+                },
+                {
+                  idsub: '2',
+                  namesub: ' วัดบางโทง',
+                  imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/ea761230-9de9-11ec-85b3-dd53b2eb1c67_webp_original.jpg',
+                },
+                {
+                  idsub: '3',
+                  namesub: 'ถ้ำผีหัวโต',
+                  imageUrl: 'https://cms.dmpcdn.com/travel/2021/01/12/457ad860-548e-11eb-8d28-4b8e3f30b51b_original.jpg',
+                },
+                
+        
+              ]
+            },
+            { id: '4', name: 'Khlong Thom' ,
+              score:'0/3',subsubprovince: [
+               {
+                 idsub: '1',
+                 namesub: 'น้ำตกร้อนคลองท่อม',
+                 imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/e87653f0-9dd0-11ec-9b64-95a9f8100bbc_webp_original.jpg',
+   
+               },
+               {
+                 idsub: '2',
+                 namesub: 'สระมรกต  ',
+                 imageUrl: 'https://cms.dmpcdn.com/travel/2022/03/07/4c1987b0-9dd1-11ec-9b64-95a9f8100bbc_webp_original.jpg',
+               },
+               {
+                 idsub: '3',
+                 namesub: ' สระน้ำผุด ',
+                 imageUrl: 'https://img.wongnai.com/p/1920x0/2019/11/29/b96a2e11fbd84e2d90a510663e55c5bf.jpg',
+               },
+               
+       
+             ]},
+          
+        ],
       },
   ];
 export default DATA
