@@ -1,18 +1,27 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, Image, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Import this hook to get navigation
+import { useNavigation } from '@react-navigation/native';
 import DATA from './province_data';
-import { Checkbox} from 'react-native-paper';
+import { Checkbox } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 
 const Province_3 = ({ route }) => {
   const data = route.params; // รับข้อมูลที่ส่งมาจาก Province_2
-  const [checkedItems, setCheckedItems] = useState([]);
-  const [checkedCount, setCheckedCount] = useState(0); // เก็บจำนวน checkbox ที่ถูกเลือก
+  const [checkedItems, setCheckedItems] = useState({}); // เก็บข้อมูล checkbox
+  const [checkedCount, setCheckedCount] = useState({}); // เก็บจำนวน checkbox ที่ถูกเลือก
+  const [currentSubProvince, setCurrentSubProvince] = useState(data.subsubprovince[0]?.idsub || null); // ใช้ค่าเริ่มต้นจากข้อมูล
   const navigation = useNavigation();
+
   useEffect(() => {
+    // ตั้งค่าเริ่มต้นให้กับ currentSubProvince
+    if (data.subsubprovince && data.subsubprovince.length > 0) {
+      setCurrentSubProvince(data.subsubprovince[0].id); // ใช้ id แทน ids
+    }
+  }, [data.subsubprovince]);
+
+  useEffect(() => {
+    // โหลดค่าที่บันทึกไว้ใน AsyncStorage
     const loadCheckedItems = async (subId) => {
       try {
         const storedCheckedItems = await AsyncStorage.getItem(`checkedItems_${subId}`);
@@ -22,7 +31,7 @@ const Province_3 = ({ route }) => {
             ...prev,
             [subId]: parsedCheckedItems,
           }));
-    
+
           // นับจำนวน checkbox ที่ถูกเลือก
           const countChecked = Object.values(parsedCheckedItems).filter(Boolean).length;
           setCheckedCount((prev) => ({
@@ -34,33 +43,43 @@ const Province_3 = ({ route }) => {
         console.error('Failed to load checked items:', error);
       }
     };
-    
 
-    loadCheckedItems();
-  }, []);
- 
-  //-----------เปลี่ยนสถานะ checkbox นะคับ
-  const handleCheckboxPress = async (subId) => {
+    if (currentSubProvince) {
+      loadCheckedItems(currentSubProvince);
+    }
+  }, [currentSubProvince]);
+
+  const handleCheckboxPress = async (itemId) => {
     setCheckedItems((prevCheckedItems) => {
       const updatedCheckedItems = {
-        ...prevCheckedItems,
-        [subId]: !prevCheckedItems[subId], // เปลี่ยนสถานะ checkbox ของรายการที่มี subId ตรงกัน
+        ...(prevCheckedItems[currentSubProvince] || {}), // ใช้ค่าที่มีอยู่แล้ว
+        [itemId]: !prevCheckedItems[currentSubProvince]?.[itemId], // เปลี่ยนสถานะ checkbox
       };
 
-      // นับจำนวน checkbox ที่ผู้ใช้เลือกนะจ้ะ
-      const countChecked = Object.values(updatedCheckedItems).filter(Boolean).length;
-      setCheckedCount(countChecked);
+      const updatedCheckedItemsState = {
+        ...prevCheckedItems,
+        [currentSubProvince]: updatedCheckedItems, // อัปเดต checkedItems สำหรับ subId
+      };
 
-      // บันทึกค่าใน AsyncStorage
+      // นับจำนวน checkbox ที่ถูกเลือก
+      const countChecked = Object.values(updatedCheckedItems).filter(Boolean).length;
+
+      setCheckedCount((prev) => ({
+        ...prev,
+        [currentSubProvince]: countChecked,
+      }));
+
+      // บันทึกข้อมูลใน AsyncStorage
       try {
-        AsyncStorage.setItem('checkedItems', JSON.stringify(updatedCheckedItems));
+        AsyncStorage.setItem(`checkedItems_${currentSubProvince}`, JSON.stringify(updatedCheckedItems));
       } catch (error) {
         console.error('Failed to save checked items:', error);
       }
 
-      return updatedCheckedItems;
+      return updatedCheckedItemsState;
     });
   };
+
   return (
     <View>
       <SafeAreaView>
@@ -80,27 +99,25 @@ const Province_3 = ({ route }) => {
             style={styles.Flatlist}
             data={data.subsubprovince}
             renderItem={({ item }) => (
-             
-                <View style={styles.item}>
+              <View style={styles.item}>
                 <View style={styles.ViweImage}>
-                                <Image source={{ uri: item.imageUrl }} style={styles.image} />
-                            </View>
-                  <View style={styles.Text}>
-                    <View style={styles.TextViewscore}>
-                      <View>
-                        <Text style={styles.Textprovince}>{checkedCount}</Text>
-                      </View>
-                      <Checkbox
-                        status={checkedItems[item.idsub] ? 'checked' : 'unchecked'}
-                        onPress={() => handleCheckboxPress(item.idsub)} // เรียกใช้ฟังก์ชันเมื่อ checkbox ถูกกด
-                      />
+                  <Image source={{ uri: item.imageUrl }} style={styles.image} />
+                </View>
+                <View style={styles.Text}>
+                  <View style={styles.TextViewscore}>
+                    <View>
+                      <Text style={styles.Textprovince}>{checkedCount[currentSubProvince] || 0}</Text>
                     </View>
+                    <Checkbox
+                      status={checkedItems[currentSubProvince]?.[item.idsub] ? 'checked' : 'unchecked'}
+                      onPress={() => handleCheckboxPress(item.idsub)}
+                    />
                   </View>
                 </View>
-            
+              </View>
             )}
             keyExtractor={(item) => item.idsub}
-            showsHorizontalScrollIndicator={false} // ซ่อนสัญลักษณ์การเลื่อนแนวนอน
+            showsHorizontalScrollIndicator={false}
           />
         </View>
       </SafeAreaView>
