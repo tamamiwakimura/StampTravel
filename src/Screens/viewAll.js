@@ -150,8 +150,8 @@ const styles = StyleSheet.create({
         color: '#777',
     },
     gridItem: {
-        flexDirection: 'row', // Arrange items in a row (Text/Icon on left,
-        alignItems: 'center', // Vertically align items
+        flexDirection: 'row', 
+        alignItems: 'center', 
         backgroundColor: '#fff',
         borderRadius: 10,
         overflow: 'hidden',
@@ -160,15 +160,15 @@ const styles = StyleSheet.create({
         shadowOffset: { width: 0, height: 2 },
         shadowRadius: 4,
         elevation: 2,
-        marginRight: 15, // Add margin between cards
-        padding: 10, // Add padding around the content
+        marginRight: 15, 
+        padding: 10, 
         marginVertical: 10,
     },
     textSection: {
         flex: 1,
-        flexDirection: 'column', // Stack text and icon vertically
-        alignItems: 'flex-start', // Align text and icon to the left
-        marginRight: 10, // Space between text and image
+        flexDirection: 'column', 
+        alignItems: 'flex-start', 
+        marginRight: 10, 
         justifyContent: 'center',
     },
     gridText: {
@@ -178,9 +178,9 @@ const styles = StyleSheet.create({
         marginBottom: 5,
     },
     gridImage: {
-        width: 150, // Set image width
-        height: 100, // Set image height
-        borderRadius: 10, // Optional: Rounded corners for the image
+        width: 150, 
+        height: 100, 
+        borderRadius: 10, 
         marginRight: 15,
     },
 });
