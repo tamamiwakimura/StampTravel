@@ -25,6 +25,7 @@ export default function App() {
           }}
         />
 
+
         <Stack.Screen
           name="viewAll"
           component={ViewAllPageScreen}
