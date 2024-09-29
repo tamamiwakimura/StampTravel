@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-    StyleSheet,
-    Text,
-    View,
-    Image,
-    ScrollView,
-    TouchableOpacity,
-    ImageBackground,
-} from 'react-native';
+import {StyleSheet,Text,View,Image,ScrollView,TouchableOpacity,ImageBackground,} from 'react-native';
 import { FontAwesome, Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 

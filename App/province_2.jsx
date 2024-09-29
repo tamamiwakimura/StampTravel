@@ -44,7 +44,7 @@ const Province_2 = ({ route ,navigation}) => {
                                   <Text style={styles.Textprovince} >{item.name}</Text>
                                 </View>
                                 <Text style={styles.Textscore}>
-                                   {item.checkedCount || 0} /{item.subsubprovince.length}
+                                   {item.subsubprovince.length}
                                 </Text>
                               </View>
                              
