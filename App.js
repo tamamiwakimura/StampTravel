@@ -12,27 +12,13 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Mytravel_1">
+      <Stack.Navigator initialRouteName="Province">
+        <Stack.Screen name="homepage" component={HomePageScreen} options={{headerShown: false,}}/>
+
         <Stack.Screen name="Province" component={Mytravel_1} />
         <Stack.Screen name="Mytravel_2" component={Province_2} />
         <Stack.Screen name="Mytravel_3" component={Province_3} />
-
-        <Stack.Screen
-          name="homepage"
-          component={HomePageScreen}
-          options={{
-            headerShown: false,
-          }}
-        />
-
-
-        <Stack.Screen
-          name="viewAll"
-          component={ViewAllPageScreen}
-          options={{
-            headerShown: false,
-          }}
-        />
+        <Stack.Screen name="viewAll" component={ViewAllPageScreen} options={{headerShown: false,}}/>
 
       </Stack.Navigator>
     </NavigationContainer>
