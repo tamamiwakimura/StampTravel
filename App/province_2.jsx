@@ -36,7 +36,7 @@ const Province_2 = ({ route ,navigation}) => {
                         <TouchableOpacity
                         onPress={() => navigation.navigate('Mytravel_3', { ...item, checkedCount: 0 })} > 
                       
-                        <View style={styles.item}>
+                        <View style={styles.item} key={item.subprovince}>
 
                             <View style={styles.Text}>
                               <View  style={styles.TextViewscore}>
