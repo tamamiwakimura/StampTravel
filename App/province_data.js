@@ -229,7 +229,7 @@ const DATA = [
     {
       key: '2',
       label: 'Satun',
-      description: '159 สถานที่ท่องเที่ยว',
+      description: '15 สถานที่ท่องเที่ยว',
       price: '10.00',
       imageUrl: 'https://blog-static.kkday.com/th/blog/wp-content/uploads/Tarutao-National-Marine-Park.jpg',
       ProgressPercent: '0.3',
@@ -354,7 +354,7 @@ const DATA = [
     {
       key: '3',
       label: 'Phuket',
-      description: '289 สถานที่ท่องเที่ยว',
+      description: '12 สถานที่ท่องเที่ยว',
       price: '12.75',
       imageUrl: 'https://www.tnnthailand.com/static/details/euNTMi9gzw-384.webp',
       ProgressPercent: '0.6',
@@ -445,14 +445,14 @@ const DATA = [
     {
         key: '4',
         label: 'Chiang Mai',
-        description: '173 สถานที่ท่องเที่ยว',
+        description: '15 สถานที่ท่องเที่ยว',
         price: '12.75',
         imageUrl: 'https://cms.dmpcdn.com/travel/2021/06/23/ca2e7e30-d432-11eb-87d9-41de76b7f7b8_original.jpg',
         ProgressPercent: '0.1',
       Percent: '10%',
       subprovince: [
         { id: '1', name: 'Mueang ',
-          score:'1/4',subsubprovince: [
+          score:'1/3',subsubprovince: [
             {
               idsub: '1',
               namesub: 'ประตูท่าแพ',
@@ -563,7 +563,7 @@ const DATA = [
     {
         key: '5',
         label: 'Phangnga',
-        description: '168 สถานที่ท่องเที่ยว',
+        description: '15 สถานที่ท่องเที่ยว',
         price: '12.75',
         imageUrl: 'https://s.isanook.com/tr/0/ui/285/1429021/241278454_4470878749631654_8274955658385130066_n.jpg',
         ProgressPercent: '0.2',
