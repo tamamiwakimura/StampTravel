@@ -106,7 +106,7 @@ const Province_3 = ({ route }) => {
                 <View style={styles.Text}>
                   <View style={styles.TextViewscore}>
                     <View>
-                      <Text style={styles.Textprovince}>{checkedCount[currentSubProvince] || 0}</Text>
+                      <Text style={styles.Textprovince}>{item.namesub}</Text>
                     </View>
                     <Checkbox
                       status={checkedItems[currentSubProvince]?.[item.idsub] ? 'checked' : 'unchecked'}
