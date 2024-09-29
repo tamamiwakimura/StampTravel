@@ -3,8 +3,11 @@ import {StyleSheet,Text,View,Image,ScrollView,TouchableOpacity,ImageBackground,}
 import { FontAwesome, Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-export default function HomePageScreen() {
-    const navigation = useNavigation();
+const HomePageScreen = ({ navigation }) => {
+        const handleIconPress = () => {
+          navigation.navigate('Province'); // ไปหน้าที่2
+        };
+
     return (
         <ScrollView style={styles.container}>
             {/* Header Section */}
@@ -15,7 +18,11 @@ export default function HomePageScreen() {
                 style={styles.headerBackground}>
                 <View style={styles.header}>
                     {/* Menu Icon */}
-                    <FontAwesome name="bars" size={24} color="#FFFFFF" />
+                    <View>
+                        <TouchableOpacity onPress={handleIconPress}>
+                            <FontAwesome name="bars" size={24} color="#FFFFFF" />
+                        </TouchableOpacity>
+                    </View>
 
                     {/* Search Bar */}
                     <View style={styles.searchBar}>
@@ -350,3 +357,5 @@ const styles = StyleSheet.create({
         marginHorizontal: 10,
     },
 });
+
+export default  HomePageScreen

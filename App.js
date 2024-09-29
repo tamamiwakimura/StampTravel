@@ -12,7 +12,7 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Province">
+      <Stack.Navigator initialRouteName="homepage">
         <Stack.Screen name="homepage" component={HomePageScreen} options={{headerShown: false,}}/>
 
         <Stack.Screen name="Province" component={Mytravel_1} />
