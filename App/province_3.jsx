@@ -95,6 +95,7 @@ const Province_3 = ({ route }) => {
           <View style={styles.ViewMytravellist}>
             <Text style={styles.TextMytravellist}>{data.name}</Text>
           </View>
+          <View style={styles.ViewFlatlist}>
           <FlatList
             style={styles.Flatlist}
             data={data.subsubprovince}
@@ -108,10 +109,13 @@ const Province_3 = ({ route }) => {
                     <View>
                       <Text style={styles.Textprovince}>{item.namesub}</Text>
                     </View>
+                    <View style={styles.ViewChecbox}> 
                     <Checkbox
                       status={checkedItems[currentSubProvince]?.[item.idsub] ? 'checked' : 'unchecked'}
                       onPress={() => handleCheckboxPress(item.idsub)}
                     />
+                    </View>
+                   
                   </View>
                 </View>
               </View>
@@ -119,6 +123,8 @@ const Province_3 = ({ route }) => {
             keyExtractor={(item) => item.idsub}
             showsHorizontalScrollIndicator={false}
           />
+          </View>
+          
         </View>
       </SafeAreaView>
     </View>
@@ -127,8 +133,8 @@ const Province_3 = ({ route }) => {
 
 const styles = StyleSheet.create({
     HeaderPic:{
-        height:120,
-        width:320,
+         height:200,
+        width:'100%'
         
 
     },
@@ -142,11 +148,10 @@ const styles = StyleSheet.create({
     },
 
     Flatlist: {
-        height:450,
+        height:500,
     },
     container: {
-        padding: 20, //ความกว้างขอบบน
-        marginLeft:5
+     
     },
     item: {
         marginVertical: 8, //ช่องว่างบนล่าง
@@ -201,10 +206,11 @@ const styles = StyleSheet.create({
     ProgressBar:{
         margin: 3,
         marginVertical:21,
-        
-        
-        
-    }
+    },
+    ViewFlatlist:{
+      marginHorizontal:30
+  },
+ 
 });
 
 export default Province_3;

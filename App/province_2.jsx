@@ -7,11 +7,29 @@ import DATA from './province_data';
 import * as Progress from 'react-native-progress';
 import { useNavigation } from '@react-navigation/native'; // เพิ่ม useNavigation
 import { useFocusEffect } from '@react-navigation/native'; 
+import { useState, useEffect } from 'react';
+import { TextInput,ImageBackground,} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons'; // นำเข้า MaterialIcons
 
 
 const Province_2 = ({ route ,navigation}) => {
   const data = route.params ; // รับข้อมูลที่ส่งมาจาก AccountScreen
-    
+  const [searchQuery, setSearchQuery] = useState(''); // เก็บคำค้นหา
+    const [filteredData, setFilteredData] = useState(DATA); // เก็บข้อมูลที่กรองแล้ว
+
+    // ฟังก์ชันสำหรับค้นหา
+    const handleSearch = (text) => {
+        setSearchQuery(text);
+        if (text) {
+            const newData = DATA.filter(item => 
+                item.label.toLowerCase().includes(text.toLowerCase()) ||
+                item.description.toLowerCase().includes(text.toLowerCase())
+            );
+            setFilteredData(newData);
+        } else {
+            setFilteredData(data.subprovince); // หากไม่มีการค้นหา แสดงข้อมูลทั้งหมด
+        }
+    };  
   
   return (
     <View>
@@ -19,17 +37,21 @@ const Province_2 = ({ route ,navigation}) => {
         <SafeAreaView>
             
             <View style={styles.container}>
-                <View >
-                    <Image
+            <View >
+                    <ImageBackground
                             source={{
                                 uri: "https://www.charnveeresortkhaoyai.com/wp-content/uploads/2023/12/Rancho-Dec-1-%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%E0%B8%97%E0%B8%B5%E0%B9%88-%E0%B8%AA%E0%B8%A7%E0%B8%A2%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B9%83%E0%B8%99%E0%B9%84%E0%B8%97%E0%B8%A2-06-scaled.jpg",
                             }}
                             style={styles.HeaderPic}
-                        />
+                        >
+                      
+                       
+                        </ImageBackground>
                 </View>
                 <View style={styles.ViewMytravellist}>
                     <Text style={styles.TextMytravellist}>{data.label}</Text>
                 </View>
+                <View style={styles.ViewFlatlist}>
                 <FlatList style={styles.Flatlist}
                     data={data.subprovince}
                     renderItem={({ item }) => (
@@ -59,6 +81,8 @@ const Province_2 = ({ route ,navigation}) => {
                     keyExtractor={item => item.key}
                     showsHorizontalScrollIndicator={false} // ซ่อนสัญลักษณ์การเลื่อนแนวนอน
                 />
+                </View>
+                
             </View>
         </SafeAreaView>
         </View>
@@ -67,8 +91,8 @@ const Province_2 = ({ route ,navigation}) => {
 
 const styles = StyleSheet.create({
   HeaderPic:{
-    height:120,
-    width:320,
+    height:200,
+    width:'100%',
     
 
 },
@@ -85,8 +109,7 @@ Flatlist: {
     height:450,
 },
 container: {
-    padding: 20, //ความกว้างขอบบน
-    marginLeft:5
+    
 },
 item: {
     marginVertical: 8, //ช่องว่างบนล่าง
@@ -154,6 +177,23 @@ ProgressBar:{
     marginVertical:21,
     
   },
+  ViewFlatlist:{
+    marginHorizontal:30
+},
+TextInput:{
+    marginHorizontal:40,
+    backgroundColor:'white',
+    marginVertical:80,
+    borderRadius: 10,
+    paddingHorizontal:10,
+    height:30,
+    flexDirection: 'row' //ให้มันเรียงในแนวนอนนะจ้ะ
+
+},
+iconsearh:{
+    paddingVertical:3,
+    paddingHorizontal:3
+}
 });
 
 export default Province_2;

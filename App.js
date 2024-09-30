@@ -77,8 +77,8 @@ export default function App() {
         />
         
         <Stack.Screen name="Province" component={Mytravel_1} options={{ headerShown: false }} />
-        <Stack.Screen name="Mytravel_2" component={Province_2} />
-        <Stack.Screen name="Mytravel_3" component={Province_3} />
+        <Stack.Screen name="Mytravel_2" component={Province_2} options={{ headerShown: false }}/>
+        <Stack.Screen name="Mytravel_3" component={Province_3} options={{ headerShown: false }}/>
 
         <Stack.Screen
           name="viewAll"
