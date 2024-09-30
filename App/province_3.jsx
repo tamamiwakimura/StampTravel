@@ -8,46 +8,19 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Province_3 = ({ route }) => {
   const data = route.params; // รับข้อมูลที่ส่งมาจาก Province_2
-  const [checkedItems, setCheckedItems] = useState({}); // เก็บข้อมูล checkbox
+  const [checkedItems, setCheckedItems] = useState({}); // เก็บข้อมูลสถานะของ checkbox นะจ้ะอิอิ
   const [checkedCount, setCheckedCount] = useState({}); // เก็บจำนวน checkbox ที่ถูกเลือก
   const [currentSubProvince, setCurrentSubProvince] = useState(data.subsubprovince[0]?.idsub || null); // ใช้ค่าเริ่มต้นจากข้อมูล
   const navigation = useNavigation();
 
   useEffect(() => {
     // ตั้งค่าเริ่มต้นให้กับ currentSubProvince
-    if (data.subsubprovince && data.subsubprovince.length > 0) {
-      setCurrentSubProvince(data.subsubprovince[0].id); // ใช้ id แทน ids
+    if (data.subprovince) {
+      setCurrentSubProvince(data.subprovince[0].id); // ใช้ id แทน ids
     }
-  }, [data.subsubprovince]);
+  });
 
-  useEffect(() => {
-    // โหลดค่าที่บันทึกไว้ใน AsyncStorage
-    const loadCheckedItems = async (subId) => {
-      try {
-        const storedCheckedItems = await AsyncStorage.getItem(`checkedItems_${subId}`);
-        if (storedCheckedItems) {
-          const parsedCheckedItems = JSON.parse(storedCheckedItems);
-          setCheckedItems((prev) => ({
-            ...prev,
-            [subId]: parsedCheckedItems,
-          }));
 
-          // นับจำนวน checkbox ที่ถูกเลือก
-          const countChecked = Object.values(parsedCheckedItems).filter(Boolean).length;
-          setCheckedCount((prev) => ({
-            ...prev,
-            [subId]: countChecked,
-          }));
-        }
-      } catch (error) {
-        console.error('Failed to load checked items:', error);
-      }
-    };
-
-    if (currentSubProvince) {
-      loadCheckedItems(currentSubProvince);
-    }
-  }, [currentSubProvince]);
 
   const handleCheckboxPress = async (itemId) => {
     setCheckedItems((prevCheckedItems) => {
@@ -61,7 +34,7 @@ const Province_3 = ({ route }) => {
         [currentSubProvince]: updatedCheckedItems, // อัปเดต checkedItems สำหรับ subId
       };
 
-      // นับจำนวน checkbox ที่ถูกเลือก
+      // นับจำนวน checkbox ที่เราเลือก
       const countChecked = Object.values(updatedCheckedItems).filter(Boolean).length;
 
       setCheckedCount((prev) => ({
@@ -69,12 +42,7 @@ const Province_3 = ({ route }) => {
         [currentSubProvince]: countChecked,
       }));
 
-      // บันทึกข้อมูลใน AsyncStorage
-      try {
-        AsyncStorage.setItem(`checkedItems_${currentSubProvince}`, JSON.stringify(updatedCheckedItems));
-      } catch (error) {
-        console.error('Failed to save checked items:', error);
-      }
+   
 
       return updatedCheckedItemsState;
     });

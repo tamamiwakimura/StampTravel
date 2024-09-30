@@ -71,8 +71,15 @@ const Mytravel_1 = ({ navigation }) => {
                             <View style={styles.Text}>
                                 <Text style={styles.Textprovince} >{item.label}</Text>
                                 <Text style={styles.Textdetail}>{item.description}</Text>
-                               
+                                <View style={styles.ViewProgress}>
+                                <Progress.Bar progress={0.1} width={120} style={styles.ProgressBar} color={'black'}/>
+                                <Text style={styles.Textdetail}>10%</Text>
+
+                                </View>
+                            
                             </View>
+                            
+                           
                             
                         </View>
                     </TouchableOpacity>
