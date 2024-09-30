@@ -149,7 +149,7 @@ export default function HomePageScreen() {
           />
           <View style={styles.textSection}>
             <Text style={styles.gridText}>Satun</Text>
-            <Text style={styles.cardLocation}>159 สถานที่ท่่องเที่ยว</Text>
+            <Text style={styles.cardLocation}>159 สถานที่ท่องเที่ยว</Text>
           </View>
         </View>
 
@@ -163,7 +163,7 @@ export default function HomePageScreen() {
           />
           <View style={styles.textSection}>
             <Text style={styles.gridText}>Songkhla</Text>
-            <Text style={styles.cardLocation}>309 สถานที่ท่่องเที่ยว</Text>
+            <Text style={styles.cardLocation}>309 สถานที่ท่องเที่ยว</Text>
           </View>
         </View>
 
@@ -177,7 +177,7 @@ export default function HomePageScreen() {
           />
           <View style={styles.textSection}>
             <Text style={styles.gridText}>Chiang Mai</Text>
-            <Text style={styles.cardLocation}>509 สถานที่ท่่องเที่ยว</Text>
+            <Text style={styles.cardLocation}>509 สถานที่ท่องเที่ยว</Text>
           </View>
         </View>
 
@@ -191,7 +191,7 @@ export default function HomePageScreen() {
           />
           <View style={styles.textSection}>
             <Text style={styles.gridText}>Chiang Rai</Text>
-            <Text style={styles.cardLocation}>329 สถานที่ท่่องเที่ยว</Text>
+            <Text style={styles.cardLocation}>329 สถานที่ท่องเที่ยว</Text>
           </View>
         </View>
       </View>
@@ -245,7 +245,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 30,
   },
   viewAllBtn: {
     position: 'absolute',
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
     color: '#007BFF',
   },
   card: {
-    width: 200,
+    width: 170,
     marginRight: 15,
     backgroundColor: '#fff',
     borderRadius: 10,
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     width: '100%',
-    height: 120,
+    height: 160,
   },
   cardContent: {
     padding: 10,
@@ -283,16 +283,16 @@ const styles = StyleSheet.create({
     color: '#777',
   },
   icon: {
-    marginTop: 5, // Add space between the text and icon
-    alignSelf: 'center', // Center the icon under the text
+    marginTop: 5, 
+    alignSelf: 'center', 
   },
   grid: {
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   gridItem: {
-    flexDirection: 'row', // Arrange items in a row (Text/Icon on left,
-    alignItems: 'center', // Vertically align items
+    flexDirection: 'row', 
+    alignItems: 'center', 
     backgroundColor: '#fff',
     borderRadius: 10,
     overflow: 'hidden',
@@ -301,15 +301,15 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     elevation: 2,
-    marginRight: 15, // Add margin between cards
-    padding: 10, // Add padding around the content
+    marginRight: 15, 
+    padding: 10, 
     marginVertical: 10,
   },
   textSection: {
-    flex: 1, // Allow text section to take up remaining space
-    flexDirection: 'column', // Stack text and icon vertically
-    alignItems: 'flex-start', // Align text and icon to the left
-    marginRight: 10, // Space between text and image
+    flex: 1, 
+    flexDirection: 'column', 
+    alignItems: 'flex-start', 
+    marginRight: 10, 
     justifyContent: 'center',
   },
   gridText: {
@@ -319,9 +319,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   gridImage: {
-    width: 150, // Set image width
-    height: 100, // Set image height
-    borderRadius: 10, // Optional: Rounded corners for the image
+    width: 150, 
+    height: 90, 
+    borderRadius: 10, 
     marginRight: 15,
   },
 });

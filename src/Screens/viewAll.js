@@ -11,67 +11,72 @@ import { FontAwesome, Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 export default function ViewAllPageScreen() {
+  const navigation = useNavigation();
   return (
     <ScrollView style={styles.container}>
-  
       <View style={styles.section}>
-        
-        <View style={styles.gridItem}>
-          {/* Satun */}
+        <Text style={styles.sectionTitle}>Recommended</Text>
+        <TouchableOpacity
+          style={styles.viewAllBtn}
+          onPress={() => navigation.navigate('Home')}>
+          <Text style={styles.viewAllText}> Back </Text>
+        </TouchableOpacity>
+
+        {/* Phuket Old Town */}
+        <View style={styles.card}>
           <Image
             source={{
-              uri: 'https://www.takemetour.com/amazing-thailand-go-local/wp-content/uploads/2018/03/Things-to-do-in-Satun-Thailand-The-Loves-Gate-on-Koh-Kai.jpg',
+              uri: 'https://www.pullmanphuketpanwa.com/wp-content/uploads/sites/51/2022/07/Phuket-Tour-Company-01.jpg',
             }}
-            style={styles.gridImage}
+            style={styles.cardImage}
           />
-          <View style={styles.textSection}>
-            <Text style={styles.gridText}>Satun</Text>
-            <Text style={styles.cardLocation}>159 สถานที่ท่่องเที่ยว</Text>
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Phuket old town</Text>
+            <Text style={styles.cardLocation}>Phuket, Thailand</Text>
           </View>
         </View>
 
-        <View style={styles.gridItem}>
-          {/* Songkhla */}
+        {/* Yaowarat Road */}
+        <View style={styles.card}>
           <Image
             source={{
-              uri: 'https://upload.wikimedia.org/wikipedia/commons/f/f4/Songkhla_Laem_Samila.jpg',
+              uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXzUng3cvD6Jb56KEp6w7nmKjHSgb_WDIiSw&s',
             }}
-            style={styles.gridImage}
+            style={styles.cardImage}
           />
-          <View style={styles.textSection}>
-            <Text style={styles.gridText}>Songkhla</Text>
-            <Text style={styles.cardLocation}>309 สถานที่ท่่องเที่ยว</Text>
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Yaowarat Road</Text>
+            <Text style={styles.cardLocation}>Bangkok, Thailand</Text>
           </View>
         </View>
 
-        <View style={styles.gridItem}>
-          {/* chiang mai */}
+        {/* Mae Kampong */}
+        <View style={styles.card}>
           <Image
             source={{
-              uri: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/0020-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg/1200px-0020-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg',
+              uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0A2yeaPjAfkGAWKQ3lEalBm5R1VGIOHpn5Q&s',
             }}
-            style={styles.gridImage}
+            style={styles.cardImage}
           />
-          <View style={styles.textSection}>
-            <Text style={styles.gridText}>Chiang Mai</Text>
-            <Text style={styles.cardLocation}>509 สถานที่ท่่องเที่ยว</Text>
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Mae Kampong</Text>
+            <Text style={styles.cardLocation}>Chiang Mai, Thailand</Text>
           </View>
         </View>
 
-         <View style={styles.gridItem}>
-          {/* chiang Rai */}
+        {/* Koh Tapu */}
+        <View style={styles.card}>
           <Image
             source={{
-              uri: 'https://warmcheaptrips.com/wp-content/uploads/2023/01/Cosa-vedere-a-Chiang-Rai.jpeg',
+              uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvHanxKpuIgpSory_MKuHKZJtnj9WWFCjYuqIZBBt9gbnT2GJ22R0W3KeBISxwgKhHCYw&usqp=CAU',
             }}
-            style={styles.gridImage}
+            style={styles.cardImage}
           />
-          <View style={styles.textSection}>
-            <Text style={styles.gridText}>Chiang Rai</Text>
-            <Text style={styles.cardLocation}>329 สถานที่ท่่องเที่ยว</Text>
+          <View style={styles.cardContent}>
+            <Text style={styles.cardTitle}>Koh Tapu</Text>
+            <Text style={styles.cardLocation}>Phang Nga, Thailand</Text>
           </View>
         </View>
-
       </View>
     </ScrollView>
   );
@@ -79,20 +84,27 @@ export default function ViewAllPageScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 60,
-    flex: 1,
+    marginTop: 30,
+    width: '100%',
     backgroundColor: '#f5f5f5',
   },
+  headerBackground: {
+    width: '100%',
+    height: 150, // Adjust height to fit the header
+    ustifyContent: 'center',
+    alignItems: 'center',
+  },
   header: {
+    marginTop: 15,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    width: '90%',
     padding: 15,
-    backgroundColor: '#fff',
   },
   searchBar: {
     flexDirection: 'row',
-    backgroundColor: '#e0e0e0',
+    backgroundColor: '#FFFFFF',
     borderRadius: 8,
     padding: 5,
     flex: 1,
@@ -112,19 +124,25 @@ const styles = StyleSheet.create({
   section: {
     marginVertical: 20,
     paddingHorizontal: 15,
+    width: '100%',
+    marginTop: '10px',
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 10,
+    marginBottom: 30,
   },
-  cardLocation: {
-    fontSize: 14,
-    color: '#777',
+  viewAllBtn: {
+    position: 'absolute',
+    right: 15,
+    top: 5,
   },
-  gridItem: { 
-    flexDirection: 'row', // Arrange items in a row (Text/Icon on left,
-    alignItems: 'center', // Vertically align items
+  viewAllText: {
+    color: '#007BFF',
+  },
+  card: {
+    width: '100%',
+    marginRight: 15,
     backgroundColor: '#fff',
     borderRadius: 10,
     overflow: 'hidden',
@@ -133,15 +151,50 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     elevation: 2,
-    marginRight: 15, // Add margin between cards
-    padding: 10, // Add padding around the content
+  },
+  cardImage: {
+    width: '100%',
+    height: 200,
+  },
+  cardContent: {
+    padding: 10,
+  },
+  cardTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  cardLocation: {
+    fontSize: 14,
+    color: '#777',
+  },
+  icon: {
+    marginTop: 5,
+    alignSelf: 'center',
+  },
+  grid: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  gridItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 4,
+    elevation: 2,
+    marginRight: 15,
+    padding: 10,
     marginVertical: 10,
   },
   textSection: {
     flex: 1,
-    flexDirection: 'column', // Stack text and icon vertically
-    alignItems: 'flex-start', // Align text and icon to the left
-    marginRight: 10, // Space between text and image
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    marginRight: 10,
     justifyContent: 'center',
   },
   gridText: {
@@ -151,9 +204,9 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   gridImage: {
-    width: 150, // Set image width
-    height: 100, // Set image height
-    borderRadius: 10, // Optional: Rounded corners for the image
+    width: 150,
+    height: 90,
+    borderRadius: 10,
     marginRight: 15,
   },
 });
