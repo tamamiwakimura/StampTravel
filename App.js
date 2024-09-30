@@ -13,12 +13,13 @@ import ViewAllPageScreen from './src/Screens/viewAll';
 import Mytravel_1 from './App/province_1';
 import Province_2 from './App/province_2';
 import Province_3 from './App/province_3';
+import { useNavigation } from '@react-navigation/native'; // นำเข้า useNavigation hook
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 function CustomDrawerContent(props) {
-
+  const navigation = useNavigation(); 
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileContainer}>
@@ -40,7 +41,7 @@ function CustomDrawerContent(props) {
       <DrawerItem
         label="My Travel List"
         icon={() => <FontAwesome name="list" size={24} color="black" />}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('Province')}
       />
       <DrawerItem
         label="Settings"

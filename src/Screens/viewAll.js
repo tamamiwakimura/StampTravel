@@ -126,11 +126,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     width: '100%',
     marginTop: '10px',
+    
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 30,
+    
   },
   viewAllBtn: {
     position: 'absolute',
@@ -151,6 +153,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     elevation: 2,
+    marginVertical:7
+    
   },
   cardImage: {
     width: '100%',

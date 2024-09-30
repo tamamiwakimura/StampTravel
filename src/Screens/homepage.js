@@ -27,7 +27,7 @@ export default function HomePageScreen() {
         <Text style={styles.sectionTitle}>Recommended</Text>
         <TouchableOpacity
           style={styles.viewAllBtn}
-          onPress={() => navigation.navigate('Province')}>
+          onPress={() => navigation.navigate('viewAll')}>
           <Text style={styles.viewAllText}>View all</Text>
         </TouchableOpacity>
 
@@ -135,19 +135,7 @@ export default function HomePageScreen() {
           </View>
         </View>
 
-        <View style={styles.gridItem}>
-          {/* chiang Rai */}
-          <Image
-            source={{
-              uri: 'https://warmcheaptrips.com/wp-content/uploads/2023/01/Cosa-vedere-a-Chiang-Rai.jpeg',
-            }}
-            style={styles.gridImage}
-          />
-          <View style={styles.textSection}>
-            <Text style={styles.gridText}>Chiang Rai</Text>
-            <Text style={styles.cardLocation}>329 สถานที่ท่องเที่ยว</Text>
-          </View>
-        </View>
+        
       </View>
     </ScrollView>
   );
