@@ -4,9 +4,28 @@ import * as Progress from 'react-native-progress';
 import { shadow } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { useState, useEffect } from 'react';
+import { TextInput,ImageBackground,} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons'; // นำเข้า MaterialIcons
 
 
 const Mytravel_1 = ({ navigation }) => {
+    const [searchQuery, setSearchQuery] = useState(''); // เก็บคำค้นหา
+    const [filteredData, setFilteredData] = useState(DATA); // เก็บข้อมูลที่กรองแล้ว
+
+    // ฟังก์ชันสำหรับค้นหา
+    const handleSearch = (text) => {
+        setSearchQuery(text);
+        if (text) {
+            const newData = DATA.filter(item => 
+                item.label.toLowerCase().includes(text.toLowerCase()) ||
+                item.description.toLowerCase().includes(text.toLowerCase())
+            );
+            setFilteredData(newData);
+        } else {
+            setFilteredData(DATA); // หากไม่มีการค้นหา แสดงข้อมูลทั้งหมด
+        }
+    };
     return (
     <View>
         
@@ -14,18 +33,32 @@ const Mytravel_1 = ({ navigation }) => {
             
             <View style={styles.container}>
                 <View >
-                    <Image
+                    <ImageBackground
                             source={{
                                 uri: "https://www.charnveeresortkhaoyai.com/wp-content/uploads/2023/12/Rancho-Dec-1-%E0%B8%97%E0%B8%B0%E0%B9%80%E0%B8%A5%E0%B8%97%E0%B8%B5%E0%B9%88-%E0%B8%AA%E0%B8%A7%E0%B8%A2%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%AA%E0%B8%B8%E0%B8%94%E0%B9%83%E0%B8%99%E0%B9%84%E0%B8%97%E0%B8%A2-06-scaled.jpg",
                             }}
                             style={styles.HeaderPic}
-                        />
+                        >
+                        <View style={styles.TextInput}>
+                        <Icon name="search" size={24} color="#888" style={styles.iconsearh} />
+                            <TextInput
+                                style={styles.searchBar}
+                                placeholder="Search."
+                                value={searchQuery}
+                                onChangeText={handleSearch} // เมื่อผู้ใช้พิมพ์จะทำการค้นหา
+                            />
+                        </View>
+                       
+                        </ImageBackground>
                 </View>
                 <View style={styles.ViewMytravellist}>
                     <Text style={styles.TextMytravellist}>My travel List</Text>
                 </View>
-                <FlatList style={styles.Flatlist}
-                    data={DATA}
+
+               
+                    <View style={styles.ViewFlatlist}>
+                    <FlatList style={styles.Flatlist}
+                    data={filteredData}
                     renderItem={({ item }) => (
                         <TouchableOpacity
                         onPress={() => navigation.navigate('Mytravel_2', item)} > 
@@ -38,10 +71,7 @@ const Mytravel_1 = ({ navigation }) => {
                             <View style={styles.Text}>
                                 <Text style={styles.Textprovince} >{item.label}</Text>
                                 <Text style={styles.Textdetail}>{item.description}</Text>
-                                <View style={styles.ViewProgress}>
-                                    <Progress.Bar progress={item.ProgressPercent} width={120} style={styles.ProgressBar} color={'#000000'} height={8} borderRadius={10} />
-                                    <Text style={styles.Textdetail}>{item.Percent}</Text>
-                                </View>
+                               
                             </View>
                             
                         </View>
@@ -50,6 +80,8 @@ const Mytravel_1 = ({ navigation }) => {
                     keyExtractor={item => item.key}
                     showsHorizontalScrollIndicator={false} // ซ่อนสัญลักษณ์การเลื่อนแนวนอน
                 />
+                    </View>
+              
             </View>
         </SafeAreaView>
         </View>
@@ -60,14 +92,14 @@ const Mytravel_1 = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     HeaderPic:{
-        height:120,
-        width:320,
+        height:200,
+        width:'100%',
         
 
     },
   
     ViewMytravellist: {
-        padding: 16, //ให้มีขอบ
+        padding: 10, //ให้มีขอบ
         alignItems: 'center',
     },
     TextMytravellist:{
@@ -75,11 +107,10 @@ const styles = StyleSheet.create({
     },
 
     Flatlist: {
-        height:450,
+        height:500,
     },
     container: {
-        padding: 20, //ความกว้างขอบบน
-        marginLeft:5
+       
     },
     item: {
         marginVertical: 8, //ช่องว่างบนล่าง
@@ -137,6 +168,23 @@ const styles = StyleSheet.create({
         
         
         
+    },
+    ViewFlatlist:{
+        marginHorizontal:30
+    },
+    TextInput:{
+        marginHorizontal:40,
+        backgroundColor:'white',
+        marginVertical:80,
+        borderRadius: 10,
+        paddingHorizontal:10,
+        height:30,
+        flexDirection: 'row' //ให้มันเรียงในแนวนอนนะจ้ะ
+
+    },
+    iconsearh:{
+        paddingVertical:3,
+        paddingHorizontal:3
     }
 });
 

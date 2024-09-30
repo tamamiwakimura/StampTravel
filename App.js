@@ -18,6 +18,7 @@ const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
 
 function CustomDrawerContent(props) {
+
   return (
     <DrawerContentScrollView {...props}>
       <View style={styles.profileContainer}>
@@ -75,7 +76,7 @@ export default function App() {
           options={{ headerShown: false }}
         />
         
-        <Stack.Screen name="Province" component={Mytravel_1} />
+        <Stack.Screen name="Province" component={Mytravel_1} options={{ headerShown: false }} />
         <Stack.Screen name="Mytravel_2" component={Province_2} />
         <Stack.Screen name="Mytravel_3" component={Province_3} />
 

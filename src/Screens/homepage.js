@@ -27,7 +27,7 @@ export default function HomePageScreen() {
         <Text style={styles.sectionTitle}>Recommended</Text>
         <TouchableOpacity
           style={styles.viewAllBtn}
-          onPress={() => navigation.navigate('viewAll')}>
+          onPress={() => navigation.navigate('Province')}>
           <Text style={styles.viewAllText}>View all</Text>
         </TouchableOpacity>
 
@@ -88,52 +88,6 @@ export default function HomePageScreen() {
             </View>
           </View>
         </ScrollView>
-      </View>
-
-      {/* Success Section */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Success</Text>
-        <View style={styles.grid}>
-          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-            {/* Songkhla */}
-            <View style={styles.gridItem}>
-              <View style={styles.textSection}>
-                <Text style={styles.gridText}>Songkhla</Text>
-                <FontAwesome
-                  name="check-circle"
-                  size={25}
-                  color="back"
-                  style={styles.icon}
-                />
-              </View>
-              <Image
-                source={{
-                  uri: 'https://www.vivahotelsongkhla.com/uploads/news/5//news54428863045.jpg',
-                }}
-                style={styles.gridImage}
-              />
-            </View>
-
-            {/* Bangkok */}
-            <View style={styles.gridItem}>
-              <View style={styles.textSection}>
-                <Text style={styles.gridText}>Bangkok</Text>
-                <FontAwesome
-                  name="check-circle"
-                  size={25}
-                  color="back"
-                  style={styles.icon}
-                />
-              </View>
-              <Image
-                source={{
-                  uri: 'https://www.holidify.com/images/bgImages/BANGKOK%20.jpg',
-                }}
-                style={styles.gridImage}
-              />
-            </View>
-          </ScrollView>
-        </View>
       </View>
 
       {/* Special for you Section */}
