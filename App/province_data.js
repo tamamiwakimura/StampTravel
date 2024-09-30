@@ -446,7 +446,7 @@ const DATA = [
         key: '4',
         label: 'Chiang Mai',
         description: '15 สถานที่ท่องเที่ยว',
-        price: '12.75',
+        price: '12.76',
         imageUrl: 'https://cms.dmpcdn.com/travel/2021/06/23/ca2e7e30-d432-11eb-87d9-41de76b7f7b8_original.jpg',
         ProgressPercent: '0.1',
       Percent: '10%',
