@@ -14,6 +14,7 @@ import Mytravel_1 from './App/province_1';
 import Province_2 from './App/province_2';
 import Province_3 from './App/province_3';
 import { useNavigation } from '@react-navigation/native'; // นำเข้า useNavigation hook
+import Profile from './App/profile';
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -47,7 +48,7 @@ function CustomDrawerContent(props) {
         <DrawerItem
         label="My Profile"
         icon={() => <FontAwesome name="user" size={24} color="black" />}
-        onPress={() => {}}
+        onPress={() => navigation.navigate('Profile')}
       />
       <DrawerItem
         label="Settings"
@@ -69,6 +70,7 @@ function DrawerNavigator() {
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={HomePageScreen} />
       <Drawer.Screen name="Province" component={Mytravel_1} />
+      <Drawer.Screen name="Profile" component={Profile} />
 
 
     </Drawer.Navigator>
