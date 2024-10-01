@@ -118,6 +118,8 @@ const Province_3 = ({ route }) => {
                         <Checkbox
                           status={checkedItems[currentProvince]?.[item.idsub] ? 'checked' : 'unchecked'}
                           onPress={() => handleCheckboxPress(item.idsub)}
+                          color='black'
+                         
                         />
                       </View>
                      
@@ -208,6 +210,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',  
     width:160,
 
+  },
+  ViewChecbox:{
+ 
+ 
   }
 });
 
