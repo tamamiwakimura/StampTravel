@@ -14,22 +14,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons'; // นำเข้�
 
 const Province_2 = ({ route ,navigation}) => {
   const data = route.params ; // รับข้อมูลที่ส่งมาจาก AccountScreen
-  const [searchQuery, setSearchQuery] = useState(''); // เก็บคำค้นหา
-    const [filteredData, setFilteredData] = useState(DATA); // เก็บข้อมูลที่กรองแล้ว
-
-    // ฟังก์ชันสำหรับค้นหา
-    const handleSearch = (text) => {
-        setSearchQuery(text);
-        if (text) {
-            const newData = DATA.filter(item => 
-                item.label.toLowerCase().includes(text.toLowerCase()) ||
-                item.description.toLowerCase().includes(text.toLowerCase())
-            );
-            setFilteredData(newData);
-        } else {
-            setFilteredData(data.subprovince); // หากไม่มีการค้นหา แสดงข้อมูลทั้งหมด
-        }
-    };  
   
   return (
     <View>

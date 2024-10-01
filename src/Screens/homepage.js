@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-  ImageBackground,
-} from 'react-native';
+import {StyleSheet,Text,View,Image,ScrollView,TouchableOpacity,ImageBackground,} from 'react-native';
 import { FontAwesome, Feather } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
@@ -31,7 +23,7 @@ export default function HomePageScreen() {
           <Text style={styles.viewAllText}>View all</Text>
         </TouchableOpacity>
 
-        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        <ScrollView horizontal >
           {/* Phuket Old Town */}
           <View style={styles.card}>
             <Image

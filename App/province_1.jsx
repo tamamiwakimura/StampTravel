@@ -13,7 +13,7 @@ const Mytravel_1 = ({ navigation }) => {
     const [searchQuery, setSearchQuery] = useState(''); // เก็บคำค้นหา
     const [filteredData, setFilteredData] = useState(DATA); // เก็บข้อมูลที่กรองแล้ว
 
-    // ฟังก์ชันสำหรับค้นหา
+    // ฟังก์ชันสำหรับค้นหานะจ้ะ
     const handleSearch = (text) => {
         setSearchQuery(text);
         if (text) {
@@ -43,7 +43,7 @@ const Mytravel_1 = ({ navigation }) => {
                         <Icon name="search" size={24} color="#888" style={styles.iconsearh} />
                             <TextInput
                                 style={styles.searchBar}
-                                placeholder="Search."
+                                placeholder="Search"
                                 value={searchQuery}
                                 onChangeText={handleSearch} // เมื่อผู้ใช้พิมพ์จะทำการค้นหา
                             />
@@ -72,8 +72,8 @@ const Mytravel_1 = ({ navigation }) => {
                                 <Text style={styles.Textprovince} >{item.label}</Text>
                                 <Text style={styles.Textdetail}>{item.description}</Text>
                                 <View style={styles.ViewProgress}>
-                                <Progress.Bar progress={0.1} width={120} style={styles.ProgressBar} color={'black'}/>
-                                <Text style={styles.Textdetail}>10%</Text>
+                                <Progress.Bar progress={item.ProgressPercent} width={120} style={styles.ProgressBar} color={'black'}/>
+                                <Text style={styles.Textdetail}>{item.Percent}</Text>
 
                                 </View>
                             
