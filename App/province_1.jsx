@@ -72,8 +72,8 @@ const Mytravel_1 = ({ navigation }) => {
                                 <Text style={styles.Textprovince} >{item.label}</Text>
                                 <Text style={styles.Textdetail}>{item.description}</Text>
                                 <View style={styles.ViewProgress}>
-                                <Progress.Bar progress={item.ProgressPercent} width={120} style={styles.ProgressBar} color={'black'}/>
-                                <Text style={styles.Textdetail}>{item.Percent}</Text>
+                                {/* <Progress.Bar progress={item.ProgressPercent} width={120} style={styles.ProgressBar} color={'black'}/>
+                                <Text style={styles.Textdetail}>{item.Percent}</Text> */}
 
                                 </View>
                             
