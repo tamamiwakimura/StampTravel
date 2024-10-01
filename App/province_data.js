@@ -22,26 +22,35 @@ const DATA = [
               idsub: '2',
               namesub: 'วัดฉื่อฉาง',
               imageUrl: 'https://cms.dmpcdn.com/travel/2024/03/27/8564abb0-ebfb-11ee-ad92-1be9a1054ad6_webp_original.webp',
+              mapsub:'FG6NEevXm46LiNe7A'
             },
             {
               idsub: '3',
               namesub: 'น้ำตกโตนงาช้าง',
               imageUrl: 'https://cms.dmpcdn.com/travel/2021/07/19/b13ee6c0-e7f7-11eb-817b-17e2ded05283_webp_original.jpg',
+              mapsub:'FfC5TQrbu9tjbyTx8'
+
             },
             {
               idsub: '4',
               namesub: 'ตลาดกรีนเวย์',
               imageUrl: 'https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/f5/f9/3a/getlstd-property-photo.jpg?w=1200&h=-1&s=1',
+              mapsub:'SctrufsT8oFAwJey9'
+
             },
             {
               idsub: '5',
               namesub: 'หอนาฬิกา',
               imageUrl: 'https://kpscarrent.com/wp-content/uploads/2023/02/clock-tower-hat-yai-1024x538.jpg',
+              mapsub:'hnkCTYL25iP8hwvx5'
+
             },
             {
               idsub: '6',
               namesub: 'ตลาดน้ำคลองแห',
               imageUrl: 'https://img.wongnai.com/p/1920x0/2019/05/13/54d3a8e1805a4705b4c9389404f02777.jpg',
+              mapsub:'1Px5HyGvDvsgpJabA'
+
             }
     
           ]

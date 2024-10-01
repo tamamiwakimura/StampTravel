@@ -20,7 +20,7 @@ export default function HomePageScreen() {
         <TouchableOpacity
           style={styles.viewAllBtn}
           onPress={() => navigation.navigate('viewAll')}>
-          <Text style={styles.viewAllText}>View all</Text>
+          <Text style={styles.viewAllText}>View all </Text>
         </TouchableOpacity>
 
         <ScrollView horizontal >
@@ -42,7 +42,7 @@ export default function HomePageScreen() {
           <View style={styles.card}>
             <Image
               source={{
-                uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXzUng3cvD6Jb56KEp6w7nmKjHSgb_WDIiSw&s',
+                uri: 'https://thailand.tripcanvas.co/wp-content/uploads/2020/01/0-Chinatown-Night-Food-Street-chin.dailybites.jpg',
               }}
               style={styles.cardImage}
             />
@@ -56,7 +56,7 @@ export default function HomePageScreen() {
           <View style={styles.card}>
             <Image
               source={{
-                uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0A2yeaPjAfkGAWKQ3lEalBm5R1VGIOHpn5Q&s',
+                uri: 'https://as1.ftcdn.net/v2/jpg/02/21/50/66/1000_F_221506686_Ja04sxl5vT3Oblc7BnV6DxQj30mnYZXi.jpg',
               }}
               style={styles.cardImage}
             />
@@ -70,7 +70,7 @@ export default function HomePageScreen() {
           <View style={styles.card}>
             <Image
               source={{
-                uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvHanxKpuIgpSory_MKuHKZJtnj9WWFCjYuqIZBBt9gbnT2GJ22R0W3KeBISxwgKhHCYw&usqp=CAU',
+                uri: 'https://png.pngtree.com/thumb_back/fh260/background/20220713/pngtree-island-sand-souvenir-ko-tapu-photo-image_6216266.jpg',
               }}
               style={styles.cardImage}
             />
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
     top: 5,
   },
   viewAllText: {
-    color: '#007BFF',
+    color: '#708090',
   },
   card: {
     width: 170,
@@ -253,8 +253,8 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   gridImage: {
-    width: 150, 
-    height: 90, 
+    width: 120, 
+    height: 80, 
     borderRadius: 10, 
     marginRight: 15,
   },
