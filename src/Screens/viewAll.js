@@ -40,7 +40,7 @@ export default function ViewAllPageScreen() {
         <View style={styles.card}>
           <Image
             source={{
-              uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXzUng3cvD6Jb56KEp6w7nmKjHSgb_WDIiSw&s',
+              uri: 'https://thailand.tripcanvas.co/wp-content/uploads/2020/01/0-Chinatown-Night-Food-Street-chin.dailybites.jpg',
             }}
             style={styles.cardImage}
           />
@@ -54,7 +54,7 @@ export default function ViewAllPageScreen() {
         <View style={styles.card}>
           <Image
             source={{
-              uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0A2yeaPjAfkGAWKQ3lEalBm5R1VGIOHpn5Q&s',
+              uri: 'https://as1.ftcdn.net/v2/jpg/02/21/50/66/1000_F_221506686_Ja04sxl5vT3Oblc7BnV6DxQj30mnYZXi.jpg',
             }}
             style={styles.cardImage}
           />
@@ -68,7 +68,7 @@ export default function ViewAllPageScreen() {
         <View style={styles.card}>
           <Image
             source={{
-              uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvHanxKpuIgpSory_MKuHKZJtnj9WWFCjYuqIZBBt9gbnT2GJ22R0W3KeBISxwgKhHCYw&usqp=CAU',
+              uri: 'https://png.pngtree.com/thumb_back/fh260/background/20220713/pngtree-island-sand-souvenir-ko-tapu-photo-image_6216266.jpg',
             }}
             style={styles.cardImage}
           />
@@ -153,7 +153,9 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 4,
     elevation: 2,
-    marginVertical:7
+    marginVertical:7,
+
+
     
   },
   cardImage: {

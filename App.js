@@ -34,14 +34,20 @@ function CustomDrawerContent(props) {
 
       {/* Drawer Items */}
       <DrawerItem
-        label="My Profile"
-        icon={() => <FontAwesome name="user" size={24} color="black" />}
-        onPress={() => {}}
+        label="Home"
+        icon={() => <FontAwesome name="home" size={24} color="black" />}
+        onPress={() => navigation.navigate('Home')}
       />
+
       <DrawerItem
         label="My Travel List"
         icon={() => <FontAwesome name="list" size={24} color="black" />}
         onPress={() => navigation.navigate('Province')}
+      />
+        <DrawerItem
+        label="My Profile"
+        icon={() => <FontAwesome name="user" size={24} color="black" />}
+        onPress={() => {}}
       />
       <DrawerItem
         label="Settings"
