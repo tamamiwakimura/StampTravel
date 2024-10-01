@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'; // นำเข้�
 
 
 const Province_2 = ({ route ,navigation}) => {
-  const data = route.params ; // รับข้อมูลที่ส่งมาจาก AccountScreen
+  const data = route.params ; // รับข้อมูลที่ส่งมาจาก 
     
 
 
@@ -42,7 +42,7 @@ const Province_2 = ({ route ,navigation}) => {
                     data={data.subprovince}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                        onPress={() => navigation.navigate('Mytravel_3', { ...item, checkedCount: 0 })} > 
+                        onPress={() => navigation.navigate('Tourist Attractions', { ...item, checkedCount: 0 })} > 
                       
                         <View style={styles.item} key={item.subprovince}>
 
@@ -77,7 +77,7 @@ const Province_2 = ({ route ,navigation}) => {
 
 const styles = StyleSheet.create({
   HeaderPic:{
-    height:200,
+    height:150,
     width:'100%',
     
 

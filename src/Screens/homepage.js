@@ -85,8 +85,10 @@ export default function HomePageScreen() {
       {/* Special for you Section */}
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Special for you</Text>
+       
         <View style={styles.gridItem}>
           {/* Satun */}
+
           <Image
             source={{
               uri: 'https://www.takemetour.com/amazing-thailand-go-local/wp-content/uploads/2018/03/Things-to-do-in-Satun-Thailand-The-Loves-Gate-on-Koh-Kai.jpg',

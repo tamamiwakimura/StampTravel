@@ -25,11 +25,11 @@ function CustomDrawerContent(props) {
       <View style={styles.profileContainer}>
         {/* User Profile Section */}
         <Image
-          source={{ uri: 'https://via.placeholder.com/100' }}
+          source={{ uri: 'https://upload.wikimedia.org/wikipedia/en/thumb/0/09/Skibidi_toilet_screenshot.webp/220px-Skibidi_toilet_screenshot.webp.png' }}
           style={styles.profileImage}
         />
-        <Text style={styles.profileName}>User Name</Text>
-        <Text style={styles.profileEmail}>test@gmail.com</Text>
+        <Text style={styles.profileName}>Skibidi</Text>
+        <Text style={styles.profileEmail}>skibidi@gmail.com</Text>
       </View>
 
       {/* Drawer Items */}
@@ -86,8 +86,8 @@ export default function App() {
           options={{ headerShown: false }}
         />
         
-        <Stack.Screen name="Mytravel_2" component={Province_2} options={{ headerShown: false }}/>
-        <Stack.Screen name="Mytravel_3" component={Province_3} options={{ headerShown: false }}/>
+        <Stack.Screen name="Sub-area" component={Province_2} />
+        <Stack.Screen name="Tourist Attractions" component={Province_3} />
 
         <Stack.Screen
           name="viewAll"

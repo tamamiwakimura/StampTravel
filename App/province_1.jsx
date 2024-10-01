@@ -61,7 +61,7 @@ const Mytravel_1 = ({ navigation }) => {
                     data={filteredData}
                     renderItem={({ item }) => (
                         <TouchableOpacity
-                        onPress={() => navigation.navigate('Mytravel_2', item)} > 
+                        onPress={() => navigation.navigate('Sub-area', item)} > 
                       
                         <View style={styles.item}>
                             <View style={styles.ViweImage}>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     },
 
     Flatlist: {
-        height:500,
+        height:440,
     },
     container: {
        

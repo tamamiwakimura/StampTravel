@@ -10,8 +10,10 @@ const Province_3 = ({ route }) => {
   const [checkedItems, setCheckedItems] = useState({}); // เก็บข้อมูลสถานะของ checkbox
   const [currentProvince, setCurrentProvince] = useState(null); // เก็บข้อมูลจังหวัดปัจจุบัน
   const navigation = useNavigation();
+
   const [checkedCount, setCheckedCount] = useState(0); // นับจำนวน checkbox ที่ถูกกด
   const [mapsub, setMapsub] = useState('');
+
   useEffect(() => {
     // โหลดสถานะของ checkbox เมื่อ component ถูก mount
     const loadCheckedItems = async () => {
@@ -139,7 +141,7 @@ const Province_3 = ({ route }) => {
 
 const styles = StyleSheet.create({
   HeaderPic: {
-    height: 200,
+    height: 150,
     width: '100%',
   },
   ViewMytravellist: {
@@ -150,7 +152,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   Flatlist: {
-    height: 500,
+    height: 450,
   },
   container: {},
   item: {
