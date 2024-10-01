@@ -99,7 +99,7 @@ const Mytravel_1 = ({ navigation }) => {
 
 const styles = StyleSheet.create({
     HeaderPic:{
-        height:200,
+        height:180,
         width:'100%',
         
 

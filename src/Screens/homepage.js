@@ -10,7 +10,7 @@ export default function HomePageScreen() {
       {/* Header Section */}
       <ImageBackground
         source={{
-          uri: 'https://cdn-635bfd72c1ac189bf80c94b1.closte.com/wp-content/uploads/2022/03/lagunggrandhotelspa-minslide-experiences-img01.jpg',
+          uri: 'https://i.pinimg.com/564x/e2/b9/3e/e2b93e3df5e1d6af4367c4a30c65942e.jpg',
         }}
         style={styles.headerBackground}></ImageBackground>
 
@@ -28,7 +28,7 @@ export default function HomePageScreen() {
           <View style={styles.card}>
             <Image
               source={{
-                uri: 'https://www.pullmanphuketpanwa.com/wp-content/uploads/sites/51/2022/07/Phuket-Tour-Company-01.jpg',
+                uri: 'https://media.gettyimages.com/id/1478631570/photo/phuket-old-town-at-dusk.jpg?s=612x612&w=0&k=20&c=bA6qN-OFc1Xma_GuPIS4laNXAKNAqdxDoc2PuuqB0R0=',
               }}
               style={styles.cardImage}
             />
