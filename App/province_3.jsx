@@ -10,6 +10,7 @@ const Province_3 = ({ route }) => {
   const [checkedItems, setCheckedItems] = useState({}); // เก็บข้อมูลสถานะของ checkbox
   const [currentProvince, setCurrentProvince] = useState(null); // เก็บข้อมูลจังหวัดปัจจุบัน
   const navigation = useNavigation();
+  const [checkedCount, setCheckedCount] = useState(0); // นับจำนวน checkbox ที่ถูกกด
 
   useEffect(() => {
     // โหลดสถานะของ checkbox เมื่อ component ถูก mount
@@ -17,7 +18,12 @@ const Province_3 = ({ route }) => {
       try {
         const storedCheckedItems = await AsyncStorage.getItem('checkedItems');
         if (storedCheckedItems) {
+          const parsedCheckedItems = JSON.parse(storedCheckedItems);
           setCheckedItems(JSON.parse(storedCheckedItems));
+          if (parsedCheckedItems[data.name]) {
+            const count = Object.values(parsedCheckedItems[data.name]).filter(Boolean).length;
+            setCheckedCount(count);
+          }
         }
       } catch (e) {
         console.error(e);
@@ -28,9 +34,13 @@ const Province_3 = ({ route }) => {
   }, []);
 
   useEffect(() => {
-    // ตั้งค่า currentProvince เมื่อเปลี่ยนข้อมูล route
+    // ตั้งค่า currentProvince เมื่อเปลี่ยนข้อมูล route และนับ checkbox ที่ถูกกด
     if (data.name) {
       setCurrentProvince(data.name);
+      if (checkedItems[data.name]) {
+        const count = Object.values(checkedItems[data.name]).filter(Boolean).length;
+        setCheckedCount(count);
+      }
     }
   }, [data.name]);
 
@@ -45,6 +55,11 @@ const Province_3 = ({ route }) => {
     };
 
     saveCheckedItems();
+    // นับจำนวน checkbox ที่ถูกกดสำหรับ currentProvince
+    if (currentProvince && checkedItems[currentProvince]) {
+      const count = Object.values(checkedItems[currentProvince]).filter(Boolean).length;
+      setCheckedCount(count);
+    }
   }, [checkedItems]);
 
   const handleCheckboxPress = async (itemId) => {
@@ -90,7 +105,7 @@ const Province_3 = ({ route }) => {
                   <View style={styles.Text}>
                     <View style={styles.TextViewscore}>
                       <View>
-                        <Text style={styles.Textprovince}>{item.namesub}</Text>
+                        <Text style={styles.Textprovince}>{checkedCount}</Text>
                       </View>
                       <View style={styles.ViewChecbox}>
                         <Checkbox
