@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, FlatList, SafeAreaView, Image } from 'react-native';
+import { View, Text, StyleSheet, FlatList, SafeAreaView, Image,TouchableOpacity,Linking } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Checkbox } from 'react-native-paper';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -11,7 +11,7 @@ const Province_3 = ({ route }) => {
   const [currentProvince, setCurrentProvince] = useState(null); // เก็บข้อมูลจังหวัดปัจจุบัน
   const navigation = useNavigation();
   const [checkedCount, setCheckedCount] = useState(0); // นับจำนวน checkbox ที่ถูกกด
-
+  const [mapsub, setMapsub] = useState('');
   useEffect(() => {
     // โหลดสถานะของ checkbox เมื่อ component ถูก mount
     const loadCheckedItems = async () => {
@@ -77,6 +77,10 @@ const Province_3 = ({ route }) => {
       return updatedCheckedItemsState;
     });
   };
+  const handlePress = (mapsub) =>{
+    const url = `https://maps.app.goo.gl/${mapsub}`;
+    Linking.openURL(url);
+  }
 
   return (
     <View>
@@ -113,6 +117,9 @@ const Province_3 = ({ route }) => {
                           onPress={() => handleCheckboxPress(item.idsub)}
                         />
                       </View>
+                      <TouchableOpacity style={styles.button} onPress = {()=> handlePress(item.mapsub)}>
+                        <Text style={styles.buttonText}>Google Maps</Text>
+                      </TouchableOpacity>
                     </View>
                   </View>
                 </View>
@@ -187,6 +194,12 @@ const styles = StyleSheet.create({
   },
   ViewFlatlist: {
     marginHorizontal: 30,
+  },
+  button:{
+    
+  },
+  buttonText:{
+
   },
 });
 
