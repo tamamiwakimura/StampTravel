@@ -62,6 +62,8 @@ function DrawerNavigator() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={HomePageScreen} />
+
+
     </Drawer.Navigator>
   );
 }
