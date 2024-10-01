@@ -14,7 +14,9 @@ import Icon from 'react-native-vector-icons/MaterialIcons'; // นำเข้�
 
 const Province_2 = ({ route ,navigation}) => {
   const data = route.params ; // รับข้อมูลที่ส่งมาจาก AccountScreen
-  
+    
+
+
   return (
     <View>
         
@@ -50,7 +52,7 @@ const Province_2 = ({ route ,navigation}) => {
                                   <Text style={styles.Textprovince} >{item.name}</Text>
                                 </View>
                                 <Text style={styles.Textscore}>
-                                   {item.subsubprovince.length}
+                                   {} / {item.subsubprovince.length}
                                 </Text>
                               </View>
                              
