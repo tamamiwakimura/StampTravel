@@ -2,7 +2,7 @@ import {Image  } from 'react-native';
 const DATA = [
     {
       key: '1',
-      label: 'Sonkhla',
+      label: 'Songkhla',
       description: '30 สถานที่ท่องเที่ยว', //เพิ่มอำเภอ
       imageUrl: 'https://news.gimyong.com/static/uploads/pictures/201812/1688853877-51043.webp',
       ProgressPercent: '0.2',

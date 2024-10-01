@@ -62,6 +62,7 @@ function DrawerNavigator() {
     <Drawer.Navigator
       drawerContent={(props) => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Home" component={HomePageScreen} />
+      <Drawer.Screen name="Province" component={Mytravel_1} />
 
 
     </Drawer.Navigator>
@@ -79,7 +80,6 @@ export default function App() {
           options={{ headerShown: false }}
         />
         
-        <Stack.Screen name="Province" component={Mytravel_1} options={{ headerShown: false }} />
         <Stack.Screen name="Mytravel_2" component={Province_2} options={{ headerShown: false }}/>
         <Stack.Screen name="Mytravel_3" component={Province_3} options={{ headerShown: false }}/>
 

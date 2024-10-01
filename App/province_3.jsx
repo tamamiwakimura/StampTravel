@@ -109,7 +109,10 @@ const Province_3 = ({ route }) => {
                   <View style={styles.Text}>
                     <View style={styles.TextViewscore}>
                       <View>
-                        <Text style={styles.Textprovince}>{checkedCount}</Text>
+                        <Text style={styles.Textprovince}>{item.namesub}</Text>
+                        <TouchableOpacity style={styles.button} onPress = {()=> handlePress(item.mapsub)}>
+                        <Text style={styles.buttonText}>Google Maps</Text>
+                      </TouchableOpacity>
                       </View>
                       <View style={styles.ViewChecbox}>
                         <Checkbox
@@ -117,9 +120,7 @@ const Province_3 = ({ route }) => {
                           onPress={() => handleCheckboxPress(item.idsub)}
                         />
                       </View>
-                      <TouchableOpacity style={styles.button} onPress = {()=> handlePress(item.mapsub)}>
-                        <Text style={styles.buttonText}>Google Maps</Text>
-                      </TouchableOpacity>
+                     
                     </View>
                   </View>
                 </View>
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   Textprovince: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   Textdetail: {
@@ -201,6 +202,11 @@ const styles = StyleSheet.create({
   buttonText:{
 
   },
+  TextViewscore:{
+    flexDirection: 'row',
+    justifyContent: 'space-between',  
+    width:160
+  }
 });
 
 export default Province_3;
