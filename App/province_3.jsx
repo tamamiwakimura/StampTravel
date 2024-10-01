@@ -200,12 +200,14 @@ const styles = StyleSheet.create({
     
   },
   buttonText:{
-
+    color:'#330099',
+    textDecorationLine:'underline'
   },
   TextViewscore:{
     flexDirection: 'row',
     justifyContent: 'space-between',  
-    width:160
+    width:160,
+
   }
 });
 
